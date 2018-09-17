@@ -98,3 +98,7 @@ C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\Business
 C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
 C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojAssemblyReference.cache
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+/*Developed by Arif & Firoz*/
 namespace MerchantDistributorService_API.Controllers
 {
     public class UserController : ApiController
