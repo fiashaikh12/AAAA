@@ -1,0 +1,12 @@
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessObjects\bin\Release\BusinessObjects.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessObjects\bin\Release\BusinessObjects.pdb
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessObjects\obj\Release\BusinessObjects.csprojAssemblyReference.cache
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessObjects\obj\Release\BusinessObjects.csproj.CoreCompileInputs.cache
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessObjects\obj\Release\BusinessObjects.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessObjects\obj\Release\BusinessObjects.pdb
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\bin\Release\BusinessObjects.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\bin\Release\BusinessObjects.pdb
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\obj\Release\BusinessObjects.csprojAssemblyReference.cache
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\obj\Release\BusinessObjects.csproj.CoreCompileInputs.cache
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\obj\Release\BusinessObjects.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\obj\Release\BusinessObjects.pdb

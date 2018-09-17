@@ -1,0 +1,100 @@
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\BusinessObjects.dll
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\BusinessObjects.pdb
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.pdb
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.pdb
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.pdb
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.pdb
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\BusinessObjects.dll
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\BusinessObjects.pdb
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.pdb
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.pdb
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.pdb
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.pdb
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojAssemblyReference.cache
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\FIROZ\Desktop\Projects\MD Service\MerchantDistributorServices_API\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\BusinessObjects.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\BusinessObjects.pdb
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.pdb
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.pdb
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.pdb
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.pdb
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojAssemblyReference.cache
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll.config
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll.config
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\BusinessObjects.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\BusinessObjects.pdb
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.pdb
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.pdb
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.pdb
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.pdb
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojAssemblyReference.cache
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

@@ -1,0 +1,12 @@
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\DataAccessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\DataAccessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\DataAccessLayer\obj\Release\DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\DataAccessLayer\obj\Release\DataAccessLayer.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\DataAccessLayer\obj\Release\DataAccessLayer.pdb
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\DataAccessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\DataAccessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\DataAccessLayer\obj\Release\DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\DataAccessLayer\obj\Release\DataAccessLayer.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\DataAccessLayer\obj\Release\DataAccessLayer.pdb

@@ -1,0 +1,17 @@
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessObjects\bin\Debug\BusinessObjects.dll
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessObjects\bin\Debug\BusinessObjects.pdb
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessObjects\obj\Debug\BusinessObjects.dll
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessObjects\obj\Debug\BusinessObjects.pdb
+C:\Users\FIROZ\Desktop\MerchantDistributorAPISolution\MerchantDistributorServices_API\BusinessObjects\obj\Debug\BusinessObjects.csprojResolveAssemblyReference.cache
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessObjects\obj\Debug\BusinessObjects.csproj.CoreCompileInputs.cache
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessObjects\obj\Debug\BusinessObjects.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessObjects\obj\Debug\BusinessObjects.pdb
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessObjects\bin\Debug\BusinessObjects.dll
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessObjects\bin\Debug\BusinessObjects.pdb
+C:\Users\firoz_shaikh\source\repos\MercantDistributor\BusinessObjects\obj\Debug\BusinessObjects.csprojAssemblyReference.cache
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\bin\Debug\BusinessObjects.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\bin\Debug\BusinessObjects.pdb
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\obj\Debug\BusinessObjects.csprojAssemblyReference.cache
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\obj\Debug\BusinessObjects.csproj.CoreCompileInputs.cache
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\obj\Debug\BusinessObjects.dll
+C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\obj\Debug\BusinessObjects.pdb
