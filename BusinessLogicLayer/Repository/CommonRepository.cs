@@ -14,6 +14,38 @@ namespace Repository
 {
     public class CommonRepository : ICommonRepository
     {
+        public ServiceRes GetBusinessCatMaster()
+        {
+            ServiceRes<List<BusinessCategory>> serviceRes = new ServiceRes<List<BusinessCategory>>();
+            try
+            {
+                List<BusinessCategory> businesses = new List<BusinessCategory>();
+                DataTable dtCities = SqlHelper.GetTableFromSP("Usp_GetBusinessMaster");
+                foreach (DataRow row in dtCities.Rows)
+                {
+                    BusinessCategory businessCategory = new BusinessCategory
+                    {
+                        BusinessId = Convert.ToInt32(row["Business_Id"]),
+                        BusineesName = Convert.ToString(row["Name"])
+                    };
+                    businesses.Add(businessCategory);
+                }
+                serviceRes.Data = businesses;
+                serviceRes.IsSuccess = true;
+                serviceRes.ReturnCode = "200";
+                serviceRes.ReturnMsg = "Business category master";
+            }
+            catch (Exception ex)
+            {
+                LogManager.WriteLog(ex, SeverityLevel.Critical);
+                serviceRes.Data = null;
+                serviceRes.IsSuccess = false;
+                serviceRes.ReturnCode = "500";
+                serviceRes.ReturnMsg = "Something went wrong";
+            }
+            return serviceRes;
+        }
+
         public ServiceRes GetCitiesByState(States states)
         {
             ServiceRes<List<Cities>> serviceRes = new ServiceRes<List<Cities>>();

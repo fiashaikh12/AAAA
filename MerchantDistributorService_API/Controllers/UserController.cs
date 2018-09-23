@@ -32,22 +32,27 @@ namespace MerchantDistributorService_API.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage GetStates()
+        public IHttpActionResult GetStates()
         {
-            return Request.CreateResponse(HttpStatusCode.OK, this._commonRepository.GetStates());
+            return Ok(this._commonRepository.GetStates());
         }
 
         [HttpGet]
-        public HttpResponseMessage GetGender()
+        public IHttpActionResult GetGender()
         {
-            return Request.CreateResponse(HttpStatusCode.OK, this._commonRepository.GetGenders());
+            return Ok(this._commonRepository.GetGenders());
         }
 
         [HttpPost]
-        public HttpResponseMessage GetCityByState(States request)
+        public IHttpActionResult GetCityByState(States request)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, this._commonRepository.GetCitiesByState(request));
+            return Ok(this._commonRepository.GetCitiesByState(request));
         }
 
+        [HttpPost]
+        public IHttpActionResult GetBusinessCategoryMaster()
+        {
+            return Ok(this._commonRepository.GetBusinessCatMaster());
+        }
     }
 }

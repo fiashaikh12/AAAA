@@ -10,3 +10,9 @@ C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\DataAcce
 C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\DataAccessLayer\obj\Release\DataAccessLayer.dll
 C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\DataAccessLayer\obj\Release\DataAccessLayer.pdb
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\DataAccessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\DataAccessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\DataAccessLayer\obj\Release\DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\DataAccessLayer\obj\Release\DataAccessLayer.dll
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\DataAccessLayer\obj\Release\DataAccessLayer.pdb
