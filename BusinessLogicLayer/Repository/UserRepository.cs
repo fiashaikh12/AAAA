@@ -26,7 +26,7 @@ namespace Repository
                 if (returnValue == 1) {
                     serviceRes.IsSuccess = true;
                     serviceRes.ReturnCode = "200";
-                    serviceRes.ReturnMsg = "Your password has been reset successfully";
+                    serviceRes.ReturnMsg = "Your password has been changed successfully";
                 }
                 else
                 {
@@ -44,9 +44,10 @@ namespace Repository
         
         public ServiceRes IsUserValid(User objUser)
         {
-            ServiceRes serviceRes = new ServiceRes();
+            ServiceRes<string> serviceRes = new ServiceRes<string>();
             try
             {
+                TokenRepository tokenRepository = TokenRepository.GetInstance;
                 SqlParameter[] parameter = new SqlParameter[1];
                 parameter[0] = new SqlParameter { ParameterName = "@MobileNumber", Value = objUser.MobileNumber };
 
@@ -57,28 +58,31 @@ namespace Repository
                     {
                         serviceRes.IsSuccess = false;
                         serviceRes.ReturnCode = "201";
-                        serviceRes.ReturnMsg = "Username not found";
+                        serviceRes.ReturnMsg = "Mobile number does not exist.Please register again";
                     }
                     else
                     {
                         string decryptedPassword = _objRepo.Decrypt(Convert.ToString(dtUser.Rows[0][1]));
                         string username = Convert.ToString(dtUser.Rows[0][0]);
-                        int isLocked = Convert.ToInt32(dtUser.Rows[0][2]);
+                        bool isLocked = Convert.ToBoolean(dtUser.Rows[0][2]);
                         int loginAttempts = Convert.ToInt32(dtUser.Rows[0][3]);
+                        bool isLogedIn = Convert.ToBoolean(dtUser.Rows[0][4]);
 
                         if ((username.Equals(objUser.MobileNumber) && decryptedPassword.Equals(objUser.Password))) {
-                            if (isLocked == 0) {
+                            if (!isLocked) {
                                 //reset login attempts and is locked column
                                 LoginDetails loginDetails = new LoginDetails()
                                 {
-                                    Username = objUser.MobileNumber,
+                                    MobileNumber = objUser.MobileNumber,
                                     IsLocked = false,
-                                    LoginAttempts = 3
+                                    LoginAttempts = 3,
+                                    IsLogedIn = true
                                 };
                                 UpdateLoginDetails(loginDetails);
                                 serviceRes.IsSuccess = true;
                                 serviceRes.ReturnCode = "200";
                                 serviceRes.ReturnMsg = "Username verified";
+                                serviceRes.Data = tokenRepository.GenerateToken();
                             }
                             else {
                                 //return account suspended status
@@ -96,9 +100,10 @@ namespace Repository
                             {
                                 LoginDetails loginDetails = new LoginDetails()
                                 {
-                                    Username = objUser.MobileNumber,
+                                    MobileNumber = objUser.MobileNumber,
                                     IsLocked = false,
-                                    LoginAttempts = loginAttempts
+                                    LoginAttempts = loginAttempts,
+                                    IsLogedIn = false
                                 };
                                 UpdateLoginDetails(loginDetails);
                                 //update attempts left and return status as wrong password
@@ -136,8 +141,8 @@ namespace Repository
             ServiceRes serviceRes = new ServiceRes();
             try
             {
-                SqlParameter[] parameter = new SqlParameter[16];
-                parameter[0] = new SqlParameter { ParameterName = "@MobileNum", Value = objRegister.MobileNumber };
+                SqlParameter[] parameter = new SqlParameter[19];
+                parameter[0] = new SqlParameter { ParameterName = "@Mobile", Value = objRegister.MobileNumber };
                 parameter[1] = new SqlParameter { ParameterName = "@Password", Value = _objRepo.Encrypt(objRegister.Password) };
                 parameter[2] = new SqlParameter { ParameterName = "@EmailId", Value = objRegister.EmaillAddress };
                 parameter[3] = new SqlParameter { ParameterName = "@Name", Value = objRegister.FullName };
@@ -147,19 +152,22 @@ namespace Repository
                 parameter[7] = new SqlParameter { ParameterName = "@City", Value = objRegister.City };
                 parameter[8] = new SqlParameter { ParameterName = "@State", Value = objRegister.State };
                 parameter[9] = new SqlParameter { ParameterName = "@Landmark", Value = objRegister.Landmark };
-                parameter[10] = new SqlParameter { ParameterName = "@AddressType", Value = objRegister.AddressType };
+                parameter[10] = new SqlParameter { ParameterName = "@AddressType", Value =(int)objRegister.AddressType };
                 parameter[11] = new SqlParameter { ParameterName = "@CompanyName", Value = objRegister.CompanyName };
                 parameter[12] = new SqlParameter { ParameterName = "@GSTNo", Value = objRegister.GST_No };
-                parameter[13] = new SqlParameter { ParameterName = "@Category", Value = objRegister.Category };
-                parameter[14] = new SqlParameter { ParameterName = "@BusinessType", Value = objRegister.Businees_Type };
-                parameter[15] = new SqlParameter { ParameterName = "@RoleID", Value = (int)objRegister.RoleId };
-                DataTable dt = SqlHelper.GetTableFromSP("Usp_ES_RegisterUser", parameter);
+                parameter[13] = new SqlParameter { ParameterName = "@CategoryId", Value = objRegister.Category };
+                parameter[14] = new SqlParameter { ParameterName = "@BusinessId", Value = objRegister.Businees_Type };
+                parameter[15] = new SqlParameter { ParameterName = "@RoleId", Value = (int)objRegister.RoleId };
+                parameter[16] = new SqlParameter { ParameterName = "@IpAddress", Value = objRegister.IpAddress };
+                parameter[17] = new SqlParameter { ParameterName = "@PanNumber", Value = objRegister.PanNumber };
+                parameter[18] = new SqlParameter { ParameterName = "@CompanyImage", Value = Convert.FromBase64String(objRegister.CompanyPhoto) };
+                DataTable dt = SqlHelper.GetTableFromSP("Usp_RegisterUser", parameter);
                 var returnValue = dt.Rows[0][0];
                 if (Convert.ToInt32(returnValue) == 1 )
                 {
                     serviceRes.IsSuccess = false;
                     serviceRes.ReturnCode = "201";
-                    serviceRes.ReturnMsg = "Username already exists.Please login";
+                    serviceRes.ReturnMsg = "Username already exists.Please login with same username";
                 }
                 else if(Convert.ToInt32(returnValue) ==0)
                 {
@@ -170,7 +178,7 @@ namespace Repository
                 else
                 {
                     serviceRes.IsSuccess = false;
-                    serviceRes.ReturnCode = "100";
+                    serviceRes.ReturnCode = "400";
                     serviceRes.ReturnMsg = "Error occured in procedure or database";
                 }
             }
@@ -188,7 +196,7 @@ namespace Repository
             {
                 LoginDetails loginDetails = new LoginDetails()
                 {
-                    Username = objUser.MobileNumber,
+                    MobileNumber = objUser.MobileNumber,
                     IsLocked = true,
                     LoginAttempts = 3
                 };
@@ -212,15 +220,21 @@ namespace Repository
             return serviceRes;
         }
 
+        public ServiceRes UserProfile()
+        {
+            throw new NotImplementedException();
+        }
+
         private int UpdateLoginDetails(LoginDetails loginDetails)
         {
             int returnValue=0;
             try
             {
-                SqlParameter[] param = new SqlParameter[3];
-                param[0] = new SqlParameter { ParameterName = "@MobileNumber", Value = loginDetails.Username };
+                SqlParameter[] param = new SqlParameter[4];
+                param[0] = new SqlParameter { ParameterName = "@MobileNumber", Value = loginDetails.MobileNumber };
                 param[1] = new SqlParameter { ParameterName = "@IsLocked", Value = loginDetails.IsLocked };
                 param[2] = new SqlParameter { ParameterName = "@LoginAttempts", Value = loginDetails.LoginAttempts };
+                param[3] = new SqlParameter { ParameterName = "@IsLogedIn", Value = loginDetails.IsLogedIn };
                 returnValue = SqlHelper.ExecuteNonQuery("Usp_UpdateLoginDetails", param);
             }
             catch(Exception ex)

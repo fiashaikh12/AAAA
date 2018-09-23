@@ -1,12 +1,34 @@
-﻿using Repository;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MerchantDistributorService_API.Common
+namespace Repository
 {
-    public class TokenGenerator
+    public sealed class TokenRepository : IToken
     {
-        public  static string GenerateToken()
+        private static readonly object padlock = new object();
+        private static TokenRepository _instance = null;
+        public static TokenRepository GetInstance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    lock (padlock)
+                    {
+                        if (_instance == null)
+                        {
+                            _instance = new TokenRepository();
+                        }
+                    }
+                }
+                return _instance;
+            }
+        }
+
+        public string GenerateToken()
         {
             var encrypt = CryptographyRepository.GetInstance;
             byte[] time = BitConverter.GetBytes(DateTime.UtcNow.ToBinary());
@@ -15,7 +37,8 @@ namespace MerchantDistributorService_API.Common
             encrypt.Encrypt(token);
             return token.ToString();
         }
-        public static bool IsTokenValid(string accessToken)
+
+        public bool IsTokenValid(string accessToken)
         {
             var IsValid = true;
             var decrypt = CryptographyRepository.GetInstance;

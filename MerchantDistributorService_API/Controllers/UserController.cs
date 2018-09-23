@@ -20,22 +20,15 @@ namespace MerchantDistributorService_API.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage ValidateUser(User request)
+        public IHttpActionResult ValidateUser(User request)
         {
-            if (TokenGenerator.IsTokenValid(request.AccessToken))
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, this._userRepository.IsUserValid(request));
-            }
-            else
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, "Invalid token and login attempt");
-            }
+                return Ok(this._userRepository.IsUserValid(request));
         }
 
         [HttpPost]
-        public HttpResponseMessage RegisterUser(Registration request)
+        public IHttpActionResult RegisterUser(Registration request)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, this._userRepository.RegisterUser(request));
+            return Ok(this._userRepository.RegisterUser(request));
         }
 
         [HttpGet]
