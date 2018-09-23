@@ -148,7 +148,6 @@
     <Compile Include="AutoFactory\ContainerConfiguration.cs" />
     <Compile Include="Common\CompressionHelper.cs" />
     <Compile Include="Common\ExtensionMethods.cs" />
-    <Compile Include="Common\TokenGenerator.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />

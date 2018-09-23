@@ -48,6 +48,7 @@
     <Compile Include="Entities\Message_Recipeint.cs" />
     <Compile Include="Entities\ProductDetails.cs" />
     <Compile Include="Entities\ServiceRes.cs" />
+    <Compile Include="Entities\Token.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Enum\Enumeration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

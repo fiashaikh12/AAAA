@@ -66,12 +66,14 @@
     <Compile Include="Repository\Interface\ICryptography.cs" />
     <Compile Include="Repository\Interface\ILog.cs" />
     <Compile Include="Repository\Interface\IProductRepository.cs" />
+    <Compile Include="Repository\Interface\IToken.cs" />
     <Compile Include="Repository\Jwt\AuthenticationRepository.cs" />
     <Compile Include="Repository\Interface\ICommonRepository.cs" />
     <Compile Include="Repository\Interface\IUserRepository.cs" />
     <Compile Include="Repository\LogManager.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\CommonRepository.cs" />
+    <Compile Include="Repository\TokenRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
