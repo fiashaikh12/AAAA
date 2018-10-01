@@ -1,8 +1,6 @@
 ﻿using Entities;
-using MerchantDistributorService_API.Common;
+using Filters;
 using Repository;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 /*Developed by Arif & Firoz*/
