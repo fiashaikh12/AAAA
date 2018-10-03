@@ -14,7 +14,7 @@ namespace Repository
 {
     public class CommonRepository : ICommonRepository
     {
-        public ServiceRes GetBusinessCatMaster()
+        public ServiceRes GetCategoryMaster()
         {
             ServiceRes<List<BusinessCategory>> serviceRes = new ServiceRes<List<BusinessCategory>>();
             try
@@ -79,6 +79,7 @@ namespace Repository
             }
             return serviceRes;
         }
+
         public ServiceRes GetGenders()
         {
             ServiceRes<List<Genders>> serviceRes = new ServiceRes<List<Genders>>();
@@ -110,6 +111,7 @@ namespace Repository
             }
             return serviceRes;
         }
+
         public ServiceRes GetStates()
         {
             ServiceRes<List<States>> serviceRes = new ServiceRes<List<States>>();
@@ -140,6 +142,11 @@ namespace Repository
                 serviceRes.ReturnMsg = "Something went wrong";
             }
             return serviceRes;
+        }
+
+        public ServiceRes GetSubCategoryMaster(int categoryId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

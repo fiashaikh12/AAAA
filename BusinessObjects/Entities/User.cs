@@ -33,8 +33,10 @@ namespace Entities
         public string GST_No { get; set; }
         public string PanNumber { get; set; }
         public string Category { get; set; }
-        public string Businees_Type { get; set; }
+        public string SubCategory { get; set; }
         public string CompanyPhoto { get; set; }
+        public string  Latitude { get; set; }
+        public string Longitude { get; set; }
     }
     public class ChangePassword
     {

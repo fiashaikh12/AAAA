@@ -4,20 +4,26 @@ using System;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Entities;
 
 namespace MerchantDistributorService_API.Controllers
 {
     public class ProductController : ApiController
     {
         private IProductRepository _productRepository;
-        public ProductController()
+        public ProductController(IProductRepository productRepository)
         {
-            this._productRepository = new ProductRepository();
+            this._productRepository = productRepository;
         }
         [HttpPost, DeflateCompression,Cache(TimeDuration =10)]
-        public HttpResponseMessage GetProductList()
+        public IHttpActionResult GetProductList()
         {
-                    return Request.CreateResponse(HttpStatusCode.OK, _productRepository.GetAllProductDetails());
+                    return Ok(_productRepository.GetAllProductDetails());
+        }
+        [HttpPost]
+        public IHttpActionResult AddProduct(ProductDetails productDetails)
+        {
+            return Ok(_productRepository.AddProduct(productDetails));
         }
     }
 }

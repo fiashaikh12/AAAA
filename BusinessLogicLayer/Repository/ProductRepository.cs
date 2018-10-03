@@ -4,6 +4,8 @@ using Repository;
 using Entities;
 using DataAccessLayer;
 using System.Data;
+using static Enum.Enums;
+using System.Data.SqlClient;
 
 namespace Repository
 {
@@ -11,7 +13,44 @@ namespace Repository
     {
         public ServiceRes AddProduct(ProductDetails objProduct)
         {
-            throw new NotImplementedException();
+            ServiceRes serviceRes = new ServiceRes();
+            try
+            {
+                if (objProduct != null)
+                {
+                    SqlParameter[] sqlParameters = new SqlParameter[9];
+                    sqlParameters[0] = new SqlParameter { ParameterName="",Value=objProduct.Name };
+                    sqlParameters[1] = new SqlParameter { ParameterName = "", Value = objProduct.SKUNumber };
+                    sqlParameters[2] = new SqlParameter { ParameterName = "", Value = objProduct.Specification };
+                    sqlParameters[3] = new SqlParameter { ParameterName = "", Value = objProduct.Price };
+                    sqlParameters[4] = new SqlParameter { ParameterName = "", Value = objProduct.IsPackaging };
+                    sqlParameters[5] = new SqlParameter { ParameterName = "", Value = objProduct.IsAvailable };
+                    sqlParameters[6] = new SqlParameter { ParameterName = "", Value = objProduct.ImagePath };
+                    sqlParameters[7] = new SqlParameter { ParameterName = "", Value = objProduct.Discount };
+                    sqlParameters[8] = new SqlParameter { ParameterName = "", Value = objProduct.Category};
+                    int returnValue = SqlHelper.ExecuteNonQuery("", sqlParameters);
+                    if(returnValue > 0)
+                    {
+                        serviceRes.IsSuccess = true;
+                        serviceRes.ReturnCode = "200";
+                        serviceRes.ReturnMsg = "Product added successfully";
+                    }
+                    else
+                    {
+                        serviceRes.IsSuccess = false;
+                        serviceRes.ReturnCode = "400";
+                        serviceRes.ReturnMsg = "Something went wrong";
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                LogManager.WriteLog(ex, SeverityLevel.Important);
+                serviceRes.IsSuccess = false;
+                serviceRes.ReturnCode = "400";
+                serviceRes.ReturnMsg = "Error occured in database";
+            }
+            return serviceRes;
         }
 
         public ServiceRes DeleteProduct(int productId)

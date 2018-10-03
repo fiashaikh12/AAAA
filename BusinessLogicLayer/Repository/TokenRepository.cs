@@ -1,5 +1,8 @@
-﻿using System;
+﻿using DataAccessLayer;
+using Entities;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,14 +31,21 @@ namespace Repository
             }
         }
 
-        public string GenerateToken()
+        public Token GenerateToken(int userId)
         {
+            Token token = new Token();
             var encrypt = CryptographyRepository.GetInstance;
             byte[] time = BitConverter.GetBytes(DateTime.UtcNow.ToBinary());
             byte[] key = Guid.NewGuid().ToByteArray();
-            var token = Convert.ToBase64String(time.Concat(key).ToArray());
-            encrypt.Encrypt(token);
-            return token.ToString();
+            token.AccessToken = Convert.ToBase64String(time.Concat(key).ToArray());
+            encrypt.Encrypt(token.AccessToken);
+
+            SqlParameter[] sqlParameter = new SqlParameter[2];
+            sqlParameter[0] = new SqlParameter { ParameterName = "@memberId", Value = userId };
+            sqlParameter[1] = new SqlParameter { ParameterName = "@accessToken", Value = token };
+            int returnValue = SqlHelper.ExecuteNonQuery("Usp_Add_Token", sqlParameter);
+
+            return  token;
         }
 
         public bool IsTokenValid(string accessToken)
