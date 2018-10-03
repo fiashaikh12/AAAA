@@ -124,3 +124,29 @@ C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\bin\Debug\Newtonsoft
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.pdb
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll.config
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\BusinessObjects.dll
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.dll
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\Newtonsoft.Json.dll
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\BusinessObjects.pdb
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.pdb
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.pdb
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Logging.xml
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.pdb
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\Newtonsoft.Json.xml
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.pdb
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojAssemblyReference.cache
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

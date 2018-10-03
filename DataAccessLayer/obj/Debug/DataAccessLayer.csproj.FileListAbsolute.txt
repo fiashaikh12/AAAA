@@ -20,3 +20,9 @@ C:\Users\FIROZ\Desktop\New folder\A\AAAA\DataAccessLayer\obj\Debug\DataAccessLay
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+E:\Github\webapi\MerchantDistributor_API\AAAA\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+E:\Github\webapi\MerchantDistributor_API\AAAA\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+E:\Github\webapi\MerchantDistributor_API\AAAA\DataAccessLayer\obj\Debug\DataAccessLayer.csprojAssemblyReference.cache
+E:\Github\webapi\MerchantDistributor_API\AAAA\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+E:\Github\webapi\MerchantDistributor_API\AAAA\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+E:\Github\webapi\MerchantDistributor_API\AAAA\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

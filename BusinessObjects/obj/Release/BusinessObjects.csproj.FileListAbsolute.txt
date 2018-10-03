@@ -10,3 +10,9 @@ C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\Business
 C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\obj\Release\BusinessObjects.csproj.CoreCompileInputs.cache
 C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\obj\Release\BusinessObjects.dll
 C:\Users\FIROZ\Desktop\New folder\MercantDistributor\MercantDistributor\BusinessObjects\obj\Release\BusinessObjects.pdb
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessObjects\bin\Release\BusinessObjects.dll
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessObjects\bin\Release\BusinessObjects.pdb
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessObjects\obj\Release\BusinessObjects.csprojAssemblyReference.cache
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessObjects\obj\Release\BusinessObjects.csproj.CoreCompileInputs.cache
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessObjects\obj\Release\BusinessObjects.dll
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessObjects\obj\Release\BusinessObjects.pdb

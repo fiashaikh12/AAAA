@@ -12,5 +12,6 @@ namespace Repository
         ServiceRes GetStates();
         ServiceRes GetCitiesByState(States states);
         ServiceRes GetGenders();
+        ServiceRes GetBusinessCatMaster();
     }
 }

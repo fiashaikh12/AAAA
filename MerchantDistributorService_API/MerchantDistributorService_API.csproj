@@ -152,6 +152,7 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\CacheAttribute.cs" />
+    <Compile Include="Filters\CustomAuthorizeAttribute.cs" />
     <Compile Include="Filters\DeflateCompressionAttribute.cs" />
     <Compile Include="Filters\ExceptionAttribute.cs" />
     <Compile Include="Filters\JwtAuthenticationAttribute.cs" />
