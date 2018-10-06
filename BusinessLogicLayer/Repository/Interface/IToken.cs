@@ -1,8 +1,10 @@
-﻿namespace Repository
+﻿using Entities;
+
+namespace Repository
 {
     public interface IToken
     {
-        string GenerateToken();
+        Token GenerateToken(int userId);
         bool IsTokenValid(string accessToken);
     }
 }

@@ -46,7 +46,7 @@ namespace Repository
 
         public ServiceRes IsUserValid(User objUser)
         {
-            ServiceRes<string> serviceRes = new ServiceRes<string>();
+            ServiceRes<Token> serviceRes = new ServiceRes<Token>();
             try
             {
                 TokenRepository tokenRepository = TokenRepository.GetInstance;
@@ -64,11 +64,12 @@ namespace Repository
                     }
                     else
                     {
-                        string decryptedPassword = _objRepo.Decrypt(Convert.ToString(dtUser.Rows[0][1]));
-                        string username = Convert.ToString(dtUser.Rows[0][0]);
-                        bool isLocked = Convert.ToBoolean(dtUser.Rows[0][2]);
-                        int loginAttempts = Convert.ToInt32(dtUser.Rows[0][3]);
-                        bool isLogedIn = Convert.ToBoolean(dtUser.Rows[0][4]);
+                        int memberId= Convert.ToInt32(dtUser.Rows[0][0]);
+                        string decryptedPassword = _objRepo.Decrypt(Convert.ToString(dtUser.Rows[0][2]));
+                        string username = Convert.ToString(dtUser.Rows[0][1]);
+                        bool isLocked = Convert.ToBoolean(dtUser.Rows[0][3]);
+                        int loginAttempts = Convert.ToInt32(dtUser.Rows[0][4]);
+                        bool isLogedIn = Convert.ToBoolean(dtUser.Rows[0][5]);
 
                         if ((username.Equals(objUser.MobileNumber) && decryptedPassword.Equals(objUser.Password))) {
                             if (!isLocked) {
@@ -84,7 +85,7 @@ namespace Repository
                                 serviceRes.IsSuccess = true;
                                 serviceRes.ReturnCode = "200";
                                 serviceRes.ReturnMsg = "Username verified";
-                                serviceRes.Data = tokenRepository.GenerateToken();
+                                serviceRes.Data = tokenRepository.GenerateToken(memberId);
                             }
                             else {
                                 //return account suspended status

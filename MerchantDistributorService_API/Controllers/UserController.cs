@@ -48,9 +48,14 @@ namespace MerchantDistributorService_API.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult GetBusinessCategoryMaster()
+        public IHttpActionResult GetCategoryMaster()
         {
-            return Ok(this._commonRepository.GetBusinessCatMaster());
+            return Ok(this._commonRepository.GetCategoryMaster());
+        }
+
+        [HttpPost]
+        public IHttpActionResult GetSubCategoryMaster(int categoryId) {
+            return Ok(this._commonRepository.GetSubCategoryMaster(categoryId));
         }
     }
 }

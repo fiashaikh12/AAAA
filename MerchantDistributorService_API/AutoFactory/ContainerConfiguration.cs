@@ -28,6 +28,7 @@ namespace AutoFactory
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerRequest();
             builder.RegisterType<CommonRepository>().As<ICommonRepository>().InstancePerRequest();
+            builder.RegisterType<ProductRepository>().As<IProductRepository>().InstancePerRequest();
             container = builder.Build();
             return container;
         }
