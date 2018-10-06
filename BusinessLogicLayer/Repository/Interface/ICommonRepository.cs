@@ -12,7 +12,6 @@ namespace Repository
         ServiceRes GetStates();
         ServiceRes GetCitiesByState(States states);
         ServiceRes GetGenders();
-        ServiceRes GetCategoryMaster();
-        ServiceRes GetSubCategoryMaster(int categoryId);
+        ServiceRes GetBusinessType();
     }
 }

@@ -14,26 +14,26 @@ namespace Repository
 {
     public class CommonRepository : ICommonRepository
     {
-        public ServiceRes GetCategoryMaster()
+        public ServiceRes GetBusinessType()
         {
-            ServiceRes<List<BusinessCategory>> serviceRes = new ServiceRes<List<BusinessCategory>>();
+            ServiceRes<List<BusinessTypeCategory>> serviceRes = new ServiceRes<List<BusinessTypeCategory>>();
             try
             {
-                List<BusinessCategory> businesses = new List<BusinessCategory>();
-                DataTable dtCities = SqlHelper.GetTableFromSP("Usp_GetBusinessMaster");
+                List<BusinessTypeCategory> businesses = new List<BusinessTypeCategory>();
+                DataTable dtCities = SqlHelper.GetTableFromSP("Usp_GetCategory");
                 foreach (DataRow row in dtCities.Rows)
                 {
-                    BusinessCategory businessCategory = new BusinessCategory
+                    BusinessTypeCategory businessCategory = new BusinessTypeCategory
                     {
-                        BusinessId = Convert.ToInt32(row["Business_Id"]),
-                        BusineesName = Convert.ToString(row["Name"])
+                        BusinessId = Convert.ToInt32(row["Product_Category_Id"]),
+                        BusinessName = Convert.ToString(row["Product_Name"])
                     };
                     businesses.Add(businessCategory);
                 }
                 serviceRes.Data = businesses;
                 serviceRes.IsSuccess = true;
                 serviceRes.ReturnCode = "200";
-                serviceRes.ReturnMsg = "Business category master";
+                serviceRes.ReturnMsg = "Category master";
             }
             catch (Exception ex)
             {
@@ -144,9 +144,5 @@ namespace Repository
             return serviceRes;
         }
 
-        public ServiceRes GetSubCategoryMaster(int categoryId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

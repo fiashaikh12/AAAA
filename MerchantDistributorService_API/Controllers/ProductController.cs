@@ -8,6 +8,7 @@ using Entities;
 
 namespace MerchantDistributorService_API.Controllers
 {
+    [CustomAuthorize]
     public class ProductController : ApiController
     {
         private IProductRepository _productRepository;
@@ -24,6 +25,17 @@ namespace MerchantDistributorService_API.Controllers
         public IHttpActionResult AddProduct(ProductDetails productDetails)
         {
             return Ok(_productRepository.AddProduct(productDetails));
+        }
+        [HttpPost]
+        public IHttpActionResult GetCategoryMaster()
+        {
+            return Ok(this._productRepository.GetCategoryMaster());
+        }
+
+        [HttpPost]
+        public IHttpActionResult GetSubCategoryMaster(ProductCategory request)
+        {
+            return Ok(this._productRepository.GetSubCategoryMaster(request.CategoryId));
         }
     }
 }

@@ -149,6 +149,7 @@
     <Compile Include="Common\CompressionHelper.cs" />
     <Compile Include="Common\ExtensionMethods.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\CacheAttribute.cs" />

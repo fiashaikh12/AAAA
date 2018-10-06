@@ -37,23 +37,23 @@ namespace Repository
             var encrypt = CryptographyRepository.GetInstance;
             byte[] time = BitConverter.GetBytes(DateTime.UtcNow.ToBinary());
             byte[] key = Guid.NewGuid().ToByteArray();
+            token.UserId = userId;
             token.AccessToken = Convert.ToBase64String(time.Concat(key).ToArray());
             encrypt.Encrypt(token.AccessToken);
 
             SqlParameter[] sqlParameter = new SqlParameter[2];
-            sqlParameter[0] = new SqlParameter { ParameterName = "@memberId", Value = userId };
-            sqlParameter[1] = new SqlParameter { ParameterName = "@accessToken", Value = token };
+            sqlParameter[0] = new SqlParameter { ParameterName = "@memberId", Value = token.UserId };
+            sqlParameter[1] = new SqlParameter { ParameterName = "@accessToken", Value = token.AccessToken };
             int returnValue = SqlHelper.ExecuteNonQuery("Usp_Add_Token", sqlParameter);
-
-            return  token;
+            return token;
         }
 
-        public bool IsTokenValid(string accessToken)
+        public bool IsTokenValid(Token token)
         {
             var IsValid = true;
             var decrypt = CryptographyRepository.GetInstance;
-            accessToken = decrypt.Decrypt(accessToken);
-            byte[] data = Convert.FromBase64String(accessToken);
+            token.AccessToken = decrypt.Decrypt(token.AccessToken);
+            byte[] data = Convert.FromBase64String(token.AccessToken);
             DateTime when = DateTime.FromBinary(BitConverter.ToInt64(data, 0));
             if (when < DateTime.UtcNow.AddHours(-24))
             {

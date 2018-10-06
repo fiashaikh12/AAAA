@@ -135,7 +135,7 @@ namespace Repository
             ServiceRes serviceRes = new ServiceRes();
             try
             {
-                SqlParameter[] parameter = new SqlParameter[19];
+                SqlParameter[] parameter = new SqlParameter[21];
                 parameter[0] = new SqlParameter { ParameterName = "@Mobile", Value = objRegister.MobileNumber };
                 parameter[1] = new SqlParameter { ParameterName = "@Password", Value = _objRepo.Encrypt(objRegister.Password) };
                 parameter[2] = new SqlParameter { ParameterName = "@EmailId", Value = objRegister.EmaillAddress };
@@ -149,12 +149,13 @@ namespace Repository
                 parameter[10] = new SqlParameter { ParameterName = "@AddressType", Value =(int)objRegister.AddressType };
                 parameter[11] = new SqlParameter { ParameterName = "@CompanyName", Value = objRegister.CompanyName };
                 parameter[12] = new SqlParameter { ParameterName = "@GSTNo", Value = objRegister.GST_No };
-                parameter[13] = new SqlParameter { ParameterName = "@CategoryId", Value = objRegister.Category };
-                parameter[14] = new SqlParameter { ParameterName = "@BusinessId", Value = objRegister.Businees_Type };
+                parameter[13] = new SqlParameter { ParameterName = "@BusinessId", Value = objRegister.Category };
                 parameter[15] = new SqlParameter { ParameterName = "@RoleId", Value = (int)objRegister.RoleId };
                 parameter[16] = new SqlParameter { ParameterName = "@IpAddress", Value = objRegister.IpAddress };
                 parameter[17] = new SqlParameter { ParameterName = "@PanNumber", Value = objRegister.PanNumber };
                 parameter[18] = new SqlParameter { ParameterName = "@CompanyImage", Value = Convert.FromBase64String(objRegister.CompanyPhoto) };
+                parameter[19] = new SqlParameter { ParameterName = "@Latitude", Value = Convert.FromBase64String(objRegister.Latitude) };
+                parameter[20] = new SqlParameter { ParameterName = "@Longitude", Value = Convert.FromBase64String(objRegister.Longitude) };
                 DataTable dt = SqlHelper.GetTableFromSP("Usp_RegisterUser", parameter);
                 var returnValue = dt.Rows[0][0];
                 if (Convert.ToInt32(returnValue) == 1 )
