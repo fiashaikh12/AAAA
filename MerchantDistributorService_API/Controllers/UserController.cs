@@ -26,5 +26,17 @@ namespace MerchantDistributorService_API.Controllers
         {
             return Ok(this._userRepository.RegisterUser(request));
         }
+
+        [HttpPost]
+        public IHttpActionResult ForgotPassword(User request)
+        {
+            return Ok(this._userRepository.ForgetPassword(request));
+        }
+
+        [HttpPost]
+        public IHttpActionResult ChangePassword(ChangePassword request)
+        {
+            return Ok(this._userRepository.ChangePassword(request));
+        }
     }
 }

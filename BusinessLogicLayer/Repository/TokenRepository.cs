@@ -34,12 +34,12 @@ namespace Repository
         public Token GenerateToken(int userId)
         {
             Token token = new Token();
-            var encrypt = CryptographyRepository.GetInstance;
+            //var encrypt = CryptographyRepository.GetInstance;
             byte[] time = BitConverter.GetBytes(DateTime.UtcNow.ToBinary());
             byte[] key = Guid.NewGuid().ToByteArray();
-            token.UserId = userId;
+            token.UserId =Convert.ToString(userId);
             token.AccessToken = Convert.ToBase64String(time.Concat(key).ToArray());
-            encrypt.Encrypt(token.AccessToken);
+            //encrypt.Encrypt(token.AccessToken);
 
             SqlParameter[] sqlParameter = new SqlParameter[2];
             sqlParameter[0] = new SqlParameter { ParameterName = "@memberId", Value = token.UserId };
@@ -51,11 +51,13 @@ namespace Repository
         public bool IsTokenValid(Token token)
         {
             var IsValid = true;
-            var decrypt = CryptographyRepository.GetInstance;
-            token.AccessToken = decrypt.Decrypt(token.AccessToken);
+            SqlParameter[] sqlParameter = new SqlParameter[1];
+            sqlParameter[0] = new SqlParameter { ParameterName = "@memberId", Value = token.UserId };
+            var tokenResponse = SqlHelper.ExecuteNonQuery("Usp_Get_Token", sqlParameter);
+
             byte[] data = Convert.FromBase64String(token.AccessToken);
             DateTime when = DateTime.FromBinary(BitConverter.ToInt64(data, 0));
-            if (when < DateTime.UtcNow.AddHours(-24))
+            if (when < DateTime.UtcNow.AddHours(-2))
             {
                 IsValid = false;
             }

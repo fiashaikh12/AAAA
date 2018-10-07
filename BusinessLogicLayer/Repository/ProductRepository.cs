@@ -19,17 +19,22 @@ namespace Repository
             {
                 if (objProduct != null)
                 {
-                    SqlParameter[] sqlParameters = new SqlParameter[9];
-                    sqlParameters[0] = new SqlParameter { ParameterName = "", Value = objProduct.Name };
-                    sqlParameters[1] = new SqlParameter { ParameterName = "", Value = objProduct.SKUNumber };
-                    sqlParameters[2] = new SqlParameter { ParameterName = "", Value = objProduct.Specification };
-                    sqlParameters[3] = new SqlParameter { ParameterName = "", Value = objProduct.Price };
-                    sqlParameters[4] = new SqlParameter { ParameterName = "", Value = objProduct.IsPackaging };
-                    sqlParameters[5] = new SqlParameter { ParameterName = "", Value = objProduct.IsAvailable };
-                    sqlParameters[6] = new SqlParameter { ParameterName = "", Value = objProduct.ImagePath };
-                    sqlParameters[7] = new SqlParameter { ParameterName = "", Value = objProduct.Discount };
-                    sqlParameters[8] = new SqlParameter { ParameterName = "", Value = objProduct.CategoryId };
-                    int returnValue = SqlHelper.ExecuteNonQuery("", sqlParameters);
+                    SqlParameter[] sqlParameters = new SqlParameter[14];
+                    sqlParameters[0] = new SqlParameter { ParameterName = "@Product_Name", Value = objProduct.Name };
+                    sqlParameters[1] = new SqlParameter { ParameterName = "@SKUNumber", Value = objProduct.SKUNumber };
+                    sqlParameters[2] = new SqlParameter { ParameterName = "@Product_Description", Value = objProduct.Specification };
+                    sqlParameters[3] = new SqlParameter { ParameterName = "@Price", Value = objProduct.Price };
+                    sqlParameters[4] = new SqlParameter { ParameterName = "@IsPackaging", Value = objProduct.IsPackaging };
+                    sqlParameters[5] = new SqlParameter { ParameterName = "@IsAvailable", Value = objProduct.IsAvailable };
+                    sqlParameters[6] = new SqlParameter { ParameterName = "@Photos_Url", Value = objProduct.ImagePath };
+                    sqlParameters[7] = new SqlParameter { ParameterName = "@Discount", Value = objProduct.Discount };
+                    sqlParameters[8] = new SqlParameter { ParameterName = "@Product_Category_Id", Value = objProduct.CategoryId };
+                    sqlParameters[9] = new SqlParameter { ParameterName = "@Product_SubCategory_Id", Value = objProduct.SubCategoryId };
+                    sqlParameters[10] = new SqlParameter { ParameterName = "@Quantity", Value = objProduct.Quantity };
+                    sqlParameters[11] = new SqlParameter { ParameterName = "@Photos_Url", Value = objProduct.ImagePath};
+                    sqlParameters[12] = new SqlParameter { ParameterName = "@Member_Id", Value = objProduct.UserId };
+                    sqlParameters[13] = new SqlParameter { ParameterName = "@flag", Value = "A" };
+                    int returnValue = SqlHelper.ExecuteNonQuery("Usp_Products", sqlParameters);
                     if (returnValue > 0)
                     {
                         serviceRes.IsSuccess = true;
@@ -126,10 +131,6 @@ namespace Repository
             catch (Exception ex)
             {
                 LogManager.WriteLog(ex, SeverityLevel.Critical);
-                serviceRes.Data = null;
-                serviceRes.IsSuccess = false;
-                serviceRes.ReturnCode = "500";
-                serviceRes.ReturnMsg = "Something went wrong";
             }
             return serviceRes;
         }
@@ -158,10 +159,6 @@ namespace Repository
             catch (Exception ex)
             {
                 LogManager.WriteLog(ex, SeverityLevel.Critical);
-                serviceRes.Data = null;
-                serviceRes.IsSuccess = false;
-                serviceRes.ReturnCode = "500";
-                serviceRes.ReturnMsg = "Something went wrong";
             }
             return serviceRes;
         }

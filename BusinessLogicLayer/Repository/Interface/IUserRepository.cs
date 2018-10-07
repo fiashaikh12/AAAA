@@ -7,7 +7,8 @@ namespace Repository
         ServiceRes IsUserValid(User objUser);
         ServiceRes RegisterUser(Registration objRegister);
         ServiceRes UnlockUserAccount(User objUser);
-        ServiceRes ChangePassword(User changePassword);
+        ServiceRes ChangePassword(ChangePassword changePassword);
         ServiceRes UserProfile();
+        ServiceRes ForgetPassword(User user);
     }
 }

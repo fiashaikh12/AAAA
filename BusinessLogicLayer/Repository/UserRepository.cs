@@ -4,38 +4,92 @@ using System.Data.SqlClient;
 using System.Data;
 using Entities;
 using static Enum.Enums;
+using BusinessLogicLayer.Repository;
 
 namespace Repository
 {
     public class UserRepository : IUserRepository
     {
-        private CryptographyRepository _objRepo = CryptographyRepository.GetInstance;
+        private readonly CryptographyRepository _objRepo = CryptographyRepository.GetInstance;
+        private readonly EmailerRepository _emailerRepository = EmailerRepository.GetInstance;
 
         public UserRepository() { }
 
-        public ServiceRes ChangePassword(User user)
+        public ServiceRes ChangePassword(ChangePassword changePassword)
         {
             ServiceRes serviceRes = new ServiceRes();
             try
             {
-                SqlParameter[] sqlParameters = new SqlParameter[2];
-                sqlParameters[0] = new SqlParameter { ParameterName = "@MobileNumber", Value = user.MobileNumber };
-                sqlParameters[1] = new SqlParameter { ParameterName = "@MobileNumber", Value = user.Password };
-
-                int returnValue = SqlHelper.ExecuteNonQuery("Usp_UpdatePassword", sqlParameters);
-                if (returnValue == 1) {
-                    serviceRes.IsSuccess = true;
-                    serviceRes.ReturnCode = "200";
-                    serviceRes.ReturnMsg = "Your password has been changed successfully";
-                }
-                else
+                if (!string.IsNullOrEmpty(changePassword.Username))
                 {
-                    serviceRes.IsSuccess = false;
-                    serviceRes.ReturnCode = "201";
-                    serviceRes.ReturnMsg = "UnAuthorized attempt";
+                    SqlParameter[] sqlParameters = new SqlParameter[1];
+                    sqlParameters[0] = new SqlParameter { ParameterName = "@mobileNumber", Value = changePassword.Username };
+
+                    var oldPassword = SqlHelper.GetTableFromSP("Usp_GetUserPassword", sqlParameters);
+                    if (_objRepo.Decrypt(Convert.ToString(oldPassword.Rows[0][0])).Equals(changePassword.OldPassword))
+                    {
+                        SqlParameter[] sqlParameter = new SqlParameter[2];
+                        sqlParameter[0] = new SqlParameter { ParameterName = "@mobileNumber", Value = changePassword.Username };
+                        sqlParameter[1] = new SqlParameter { ParameterName = "@newPassword", Value = changePassword.NewPassword };
+
+                        var passwordChanged = SqlHelper.ExecuteNonQuery("Usp_UpdatePassword", sqlParameter);
+                        if (passwordChanged == 1)
+                        {
+                            serviceRes.IsSuccess = true;
+                            serviceRes.ReturnCode = "200";
+                            serviceRes.ReturnMsg = "Your password has been changed successfully";
+                        }
+                        else
+                        {
+                            serviceRes.IsSuccess = false;
+                            serviceRes.ReturnCode = "201";
+                            serviceRes.ReturnMsg = "UnAuthorized attempt";
+                        }
+                    }
+                    else
+                    {
+                        serviceRes.IsSuccess = false;
+                        serviceRes.ReturnCode = "202";
+                        serviceRes.ReturnMsg = "Old password is not correct";
+                    }
                 }
             }
             catch(Exception ex)
+            {
+                LogManager.WriteLog(ex, SeverityLevel.Critical);
+            }
+            return serviceRes;
+        }
+
+        public ServiceRes ForgetPassword(User user)
+        {
+            ServiceRes serviceRes = new ServiceRes();
+            try {
+                SqlParameter[] parameter = new SqlParameter[1];
+                parameter[0] = new SqlParameter { ParameterName = "@mobileNumber", Value = user.MobileNumber };
+                DataTable dataTable = SqlHelper.GetTableFromSP("Usp_GetUserDetails", parameter);
+                if (dataTable.Rows.Count > 0)
+                {
+                    string emailAddress = Convert.ToString(dataTable.Rows[0][0]);
+                    string password = this._objRepo.Decrypt(Convert.ToString(dataTable.Rows[0][1]));
+                    if (!string.IsNullOrEmpty(emailAddress))
+                    {
+                        if (this._emailerRepository.Send(emailAddress, password))
+                        {
+                            serviceRes.IsSuccess = true;
+                            serviceRes.ReturnCode = "200";
+                            serviceRes.ReturnMsg = "Password reset link has been sent to your registered email address.";
+                        }
+                        else
+                        {
+                            serviceRes.IsSuccess = false;
+                            serviceRes.ReturnCode = "400";
+                            serviceRes.ReturnMsg = "Something went wrong";
+                        }
+                    }
+                }              
+            }
+            catch (Exception ex)
             {
                 LogManager.WriteLog(ex, SeverityLevel.Critical);
             }
@@ -149,7 +203,7 @@ namespace Repository
                 parameter[10] = new SqlParameter { ParameterName = "@AddressType", Value =(int)objRegister.AddressType };
                 parameter[11] = new SqlParameter { ParameterName = "@CompanyName", Value = objRegister.CompanyName };
                 parameter[12] = new SqlParameter { ParameterName = "@GSTNo", Value = objRegister.GST_No };
-                parameter[13] = new SqlParameter { ParameterName = "@BusinessId", Value = objRegister.Category };
+                parameter[13] = new SqlParameter { ParameterName = "@BusinessId", Value = objRegister.BusinessId };
                 parameter[15] = new SqlParameter { ParameterName = "@RoleId", Value = (int)objRegister.RoleId };
                 parameter[16] = new SqlParameter { ParameterName = "@IpAddress", Value = objRegister.IpAddress };
                 parameter[17] = new SqlParameter { ParameterName = "@PanNumber", Value = objRegister.PanNumber };

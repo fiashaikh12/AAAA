@@ -30,5 +30,10 @@ namespace MerchantDistributorService_API.Controllers
         {
             return Ok(this._commonRepository.GetCitiesByState(request));
         }
+        [HttpPost]
+        public IHttpActionResult GetBusinessMaster()
+        {
+            return Ok(this._commonRepository.GetBusinessType());
+        }
     }
 }

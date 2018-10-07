@@ -20,13 +20,13 @@ namespace Repository
             try
             {
                 List<BusinessTypeCategory> businesses = new List<BusinessTypeCategory>();
-                DataTable dtCities = SqlHelper.GetTableFromSP("Usp_GetCategory");
+                DataTable dtCities = SqlHelper.GetTableFromSP("Usp_GetBusinessMaster");
                 foreach (DataRow row in dtCities.Rows)
                 {
                     BusinessTypeCategory businessCategory = new BusinessTypeCategory
                     {
-                        BusinessId = Convert.ToInt32(row["Product_Category_Id"]),
-                        BusinessName = Convert.ToString(row["Product_Name"])
+                        BusinessId = Convert.ToInt32(row["Business_Id"]),
+                        BusinessName = Convert.ToString(row["Name"])
                     };
                     businesses.Add(businessCategory);
                 }

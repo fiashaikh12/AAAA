@@ -9,6 +9,6 @@ namespace Entities
     public  class Token
     {
         public string AccessToken { get; set; }
-        public long UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

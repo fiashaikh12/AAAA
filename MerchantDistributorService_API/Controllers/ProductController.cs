@@ -8,7 +8,7 @@ using Entities;
 
 namespace MerchantDistributorService_API.Controllers
 {
-    [CustomAuthorize]
+    //[CustomAuthorize]
     public class ProductController : ApiController
     {
         private IProductRepository _productRepository;
