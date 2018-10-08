@@ -19,6 +19,8 @@ namespace Repository
             {
                 if (objProduct != null)
                 {
+                    ICommonRepository _commonRepository = new CommonRepository();
+                    string fileLocation = _commonRepository.Base64toImage(objProduct.ImagePath, "Images", "ProductImages");
                     SqlParameter[] sqlParameters = new SqlParameter[14];
                     sqlParameters[0] = new SqlParameter { ParameterName = "@Product_Name", Value = objProduct.Name };
                     sqlParameters[1] = new SqlParameter { ParameterName = "@SKUNumber", Value = objProduct.SKUNumber };
@@ -31,7 +33,7 @@ namespace Repository
                     sqlParameters[8] = new SqlParameter { ParameterName = "@Product_Category_Id", Value = objProduct.CategoryId };
                     sqlParameters[9] = new SqlParameter { ParameterName = "@Product_SubCategory_Id", Value = objProduct.SubCategoryId };
                     sqlParameters[10] = new SqlParameter { ParameterName = "@Quantity", Value = objProduct.Quantity };
-                    sqlParameters[11] = new SqlParameter { ParameterName = "@Photos_Url", Value = objProduct.ImagePath};
+                    sqlParameters[11] = new SqlParameter { ParameterName = "@Photos_Url", Value = fileLocation };
                     sqlParameters[12] = new SqlParameter { ParameterName = "@Member_Id", Value = objProduct.UserId };
                     sqlParameters[13] = new SqlParameter { ParameterName = "@flag", Value = "A" };
                     int returnValue = SqlHelper.ExecuteNonQuery("Usp_Products", sqlParameters);

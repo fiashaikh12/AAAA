@@ -9,6 +9,8 @@ using DataAccessLayer;
 using System.Data;
 using BusinessLogicLayer.Repository;
 using static Enum.Enums;
+using System.Web.Hosting;
+using System.IO;
 
 namespace Repository
 {
@@ -144,5 +146,52 @@ namespace Repository
             return serviceRes;
         }
 
+        public string Base64toImage(string base64string, string directory, string subdirectory)
+        {
+            string filelocation = "NA";
+            if (base64string != "" || base64string != null)
+            {
+                try
+                {
+                    bool exists = Directory.Exists(HostingEnvironment.MapPath("~/"+ directory));
+
+                    if (!exists)
+                        Directory.CreateDirectory(HostingEnvironment.MapPath("~/"+ directory));
+
+                    exists = Directory.Exists(HostingEnvironment.MapPath("~/Images/" + subdirectory));
+
+                    if (!exists)
+                        Directory.CreateDirectory(HostingEnvironment.MapPath("~/Images/" + subdirectory));
+
+                    string imageformat = "";
+                    var data = base64string.Substring(0, 5);
+                    switch (data.ToUpper())
+                    {
+                        case "IVBOR": imageformat = ".png"; break;
+                        case "/9J/4": imageformat = ".jpeg"; break;
+                        case "AAAAF": imageformat = ".mp4"; break;
+                        case "JVBER": imageformat = ".pdf"; break;
+                        default: imageformat = ""; break;
+                    }
+
+
+                    //Convert Base64 Encoded string to Byte Array.
+                    byte[] imageBytes = Convert.FromBase64String(base64string);
+
+                    string filename = "Companyphoto_" + DateTime.Now.ToString("yyyyMMdd_hhmmss");
+                    //Save the Byte Array as Image File.
+                    filelocation = "Images/CompanyPhoto/" + filename + imageformat;
+                    string filePath = Path.Combine(HostingEnvironment.MapPath("~/Images/" + subdirectory + "/") + filename + imageformat);
+                    File.WriteAllBytes(filePath, imageBytes);
+                }
+                catch (Exception ex)
+                {
+                    LogManager.WriteLog(ex, SeverityLevel.Important);
+                }
+
+            }
+
+            return filelocation;
+        }
     }
 }

@@ -13,5 +13,6 @@ namespace Repository
         ServiceRes GetCitiesByState(States states);
         ServiceRes GetGenders();
         ServiceRes GetBusinessType();
+        string Base64toImage(string base64string, string directory, string subdirectory);
     }
 }

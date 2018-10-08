@@ -46,7 +46,7 @@ namespace BusinessLogicLayer.Repository
                         mail.Subject = "Forgot password";
                         mail.Body = $"Your password is {password}";
                         mail.IsBodyHtml = false;
-                        using (SmtpClient client = new SmtpClient("smtp.gmail.com", 587))
+                        using (SmtpClient client = new SmtpClient("relay-hosting.secureserver.net", 25))
                         {
                             client.Credentials = new NetworkCredential(_email, _password);
                             client.EnableSsl = true;
