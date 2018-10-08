@@ -12,7 +12,7 @@ namespace Repository
         ServiceRes GetStates();
         ServiceRes GetCitiesByState(States states);
         ServiceRes GetGenders();
-        ServiceRes GetCategoryMaster();
-        ServiceRes GetSubCategoryMaster(int categoryId);
+        ServiceRes GetBusinessType();
+        string Base64toImage(string base64string, string directory, string subdirectory);
     }
 }

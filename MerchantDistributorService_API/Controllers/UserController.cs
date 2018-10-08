@@ -1,5 +1,4 @@
 ﻿using Entities;
-using Filters;
 using Repository;
 using System.Web.Http;
 
@@ -9,12 +8,10 @@ namespace MerchantDistributorService_API.Controllers
     public class UserController : ApiController
     {
         private readonly IUserRepository _userRepository;
-        private readonly ICommonRepository _commonRepository;
-
-        public UserController(IUserRepository userRepo, ICommonRepository commonRepo)
+       
+        public UserController(IUserRepository userRepo)
         {
-            this._userRepository = userRepo;
-            this._commonRepository = commonRepo;
+            this._userRepository = userRepo;           
         }
 
         [HttpPost]
@@ -29,33 +26,16 @@ namespace MerchantDistributorService_API.Controllers
             return Ok(this._userRepository.RegisterUser(request));
         }
 
-        [HttpGet]
-        public IHttpActionResult GetStates()
+        [HttpPost]
+        public IHttpActionResult ForgotPassword(User request)
         {
-            return Ok(this._commonRepository.GetStates());
-        }
-
-        [HttpGet]
-        public IHttpActionResult GetGender()
-        {
-            return Ok(this._commonRepository.GetGenders());
+            return Ok(this._userRepository.ForgetPassword(request));
         }
 
         [HttpPost]
-        public IHttpActionResult GetCityByState(States request)
+        public IHttpActionResult ChangePassword(ChangePassword request)
         {
-            return Ok(this._commonRepository.GetCitiesByState(request));
-        }
-
-        [HttpPost]
-        public IHttpActionResult GetCategoryMaster()
-        {
-            return Ok(this._commonRepository.GetCategoryMaster());
-        }
-
-        [HttpPost]
-        public IHttpActionResult GetSubCategoryMaster(int categoryId) {
-            return Ok(this._commonRepository.GetSubCategoryMaster(categoryId));
+            return Ok(this._userRepository.ChangePassword(request));
         }
     }
 }

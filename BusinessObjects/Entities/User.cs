@@ -32,8 +32,7 @@ namespace Entities
         public string CompanyName { get; set; }
         public string GST_No { get; set; }
         public string PanNumber { get; set; }
-        public string Category { get; set; }
-        public string SubCategory { get; set; }
+        public string BusinessId { get; set; }
         public string CompanyPhoto { get; set; }
         public string  Latitude { get; set; }
         public string Longitude { get; set; }
@@ -43,7 +42,6 @@ namespace Entities
         public string  Username { get; set; }
         public string  OldPassword { get; set; }
         public string NewPassword { get; set; }
-        public string  ConfirmPassword { get; set; }
     }
     public class LoginDetails
     {

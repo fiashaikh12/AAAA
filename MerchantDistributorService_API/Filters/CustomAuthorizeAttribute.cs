@@ -1,28 +1,31 @@
-﻿using System.Web.Http;
+﻿using Entities;
+using Repository;
+using System.Web.Http;
 using System.Web.Http.Controllers;
 
 namespace Filters
 {
     public class CustomAuthorizeAttribute : AuthorizeAttribute
     {
+        private readonly Token _token;
+        private readonly TokenRepository _instance;
+        public CustomAuthorizeAttribute()
+        {
+            this._token = new Token();
+            this._instance = TokenRepository.GetInstance;
+        }
         public override void OnAuthorization(HttpActionContext actionContext)
         {
-            string username = ((string[])actionContext.Request.Headers.GetValues("User"))[0];
-            string password = ((string[])actionContext.Request.Headers.GetValues("Password"))[0];
-            if(!Authenticate(username, password))
+            _token.AccessToken = ((string[])actionContext.Request.Headers.GetValues("Token"))[0];
+            _token.UserId =((string[])actionContext.Request.Headers.GetValues("UserId"))[0];
+            if (!_instance.IsTokenValid(_token))
             {
                 actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
             }
-        }
-
-        private bool Authenticate(string username,string password)
-        {
-            bool isAuthenticated = false;
-            if(username.Equals("firoz") && password.Equals("1234"))
+            else
             {
-                isAuthenticated = true;
+                actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.OK);
             }
-            return isAuthenticated;
         }
     }
 }

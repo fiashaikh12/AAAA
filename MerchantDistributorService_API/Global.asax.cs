@@ -24,8 +24,6 @@ namespace MerchantDistributorService_API
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            //    var cors = new EnableCorsAttribute("*", "*", "*");
-            ////    config.EnableCors(cors);
             HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
 
             if (HttpContext.Current.Request.HttpMethod == "OPTIONS")

@@ -16,26 +16,26 @@ namespace Repository
 {
     public class CommonRepository : ICommonRepository
     {
-        public ServiceRes GetCategoryMaster()
+        public ServiceRes GetBusinessType()
         {
-            ServiceRes<List<BusinessCategory>> serviceRes = new ServiceRes<List<BusinessCategory>>();
+            ServiceRes<List<BusinessTypeCategory>> serviceRes = new ServiceRes<List<BusinessTypeCategory>>();
             try
             {
-                List<BusinessCategory> businesses = new List<BusinessCategory>();
+                List<BusinessTypeCategory> businesses = new List<BusinessTypeCategory>();
                 DataTable dtCities = SqlHelper.GetTableFromSP("Usp_GetBusinessMaster");
                 foreach (DataRow row in dtCities.Rows)
                 {
-                    BusinessCategory businessCategory = new BusinessCategory
+                    BusinessTypeCategory businessCategory = new BusinessTypeCategory
                     {
                         BusinessId = Convert.ToInt32(row["Business_Id"]),
-                        BusineesName = Convert.ToString(row["Name"])
+                        BusinessName = Convert.ToString(row["Name"])
                     };
                     businesses.Add(businessCategory);
                 }
                 serviceRes.Data = businesses;
                 serviceRes.IsSuccess = true;
                 serviceRes.ReturnCode = "200";
-                serviceRes.ReturnMsg = "Business category master";
+                serviceRes.ReturnMsg = "Category master";
             }
             catch (Exception ex)
             {
@@ -146,22 +146,22 @@ namespace Repository
             return serviceRes;
         }
 
-        public string base64toimage(string base64string,string subdirectory)
+        public string Base64toImage(string base64string, string directory, string subdirectory)
         {
             string filelocation = "NA";
             if (base64string != "" || base64string != null)
             {
                 try
                 {
-                    bool exists = System.IO.Directory.Exists(HostingEnvironment.MapPath("~/Images"));
+                    bool exists = Directory.Exists(HostingEnvironment.MapPath("~/"+ directory));
 
                     if (!exists)
-                        System.IO.Directory.CreateDirectory(HostingEnvironment.MapPath("~/Images"));
+                        Directory.CreateDirectory(HostingEnvironment.MapPath("~/"+ directory));
 
-                    exists = System.IO.Directory.Exists(HostingEnvironment.MapPath("~/Images/"+ subdirectory));
+                    exists = Directory.Exists(HostingEnvironment.MapPath("~/Images/" + subdirectory));
 
                     if (!exists)
-                        System.IO.Directory.CreateDirectory(HostingEnvironment.MapPath("~/Images/"+ subdirectory));
+                        Directory.CreateDirectory(HostingEnvironment.MapPath("~/Images/" + subdirectory));
 
                     string imageformat = "";
                     var data = base64string.Substring(0, 5);
@@ -181,14 +181,14 @@ namespace Repository
                     string filename = "Companyphoto_" + DateTime.Now.ToString("yyyyMMdd_hhmmss");
                     //Save the Byte Array as Image File.
                     filelocation = "Images/CompanyPhoto/" + filename + imageformat;
-                    string filePath = Path.Combine(HostingEnvironment.MapPath("~/Images/"+ subdirectory + "/") + filename + imageformat);
+                    string filePath = Path.Combine(HostingEnvironment.MapPath("~/Images/" + subdirectory + "/") + filename + imageformat);
                     File.WriteAllBytes(filePath, imageBytes);
                 }
                 catch (Exception ex)
                 {
                     LogManager.WriteLog(ex, SeverityLevel.Important);
                 }
-                
+
             }
 
             return filelocation;
