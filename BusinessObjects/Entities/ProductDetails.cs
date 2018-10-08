@@ -2,7 +2,7 @@
 {
     public class ProductDetails
     {
-        public long UserId { get; set; }
+        public int UserId { get; set; }
         public string  Name { get; set; }
         public int Quantity { get; set; }
         public string  SKUNumber { get; set; }

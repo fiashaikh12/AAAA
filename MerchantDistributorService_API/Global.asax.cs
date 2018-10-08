@@ -18,7 +18,7 @@ namespace MerchantDistributorService_API
             // Get the exception object.
             Exception exc = Server.GetLastError();
             // Handle HTTP errors
-            LogManager.WriteLog(exc, Enum.Enums.SeverityLevel.Important);
+            LogManager.WriteLog(exc);
         }
 
 

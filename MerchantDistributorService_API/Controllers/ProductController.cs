@@ -22,9 +22,9 @@ namespace MerchantDistributorService_API.Controllers
                     return Ok(_productRepository.GetAllProductDetails());
         }
         [HttpPost]
-        public IHttpActionResult AddProduct(ProductDetails productDetails)
+        public IHttpActionResult AddProduct(ProductDetails request)
         {
-            return Ok(_productRepository.AddProduct(productDetails));
+            return Ok(_productRepository.AddProduct(request));
         }
         [HttpPost]
         public IHttpActionResult GetCategoryMaster()

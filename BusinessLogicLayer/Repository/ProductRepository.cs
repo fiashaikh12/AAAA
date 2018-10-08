@@ -53,7 +53,7 @@ namespace Repository
             }
             catch (Exception ex)
             {
-                LogManager.WriteLog(ex, SeverityLevel.Important);
+                LogManager.WriteLog(ex);
                 serviceRes.IsSuccess = false;
                 serviceRes.ReturnCode = "400";
                 serviceRes.ReturnMsg = "Error occured in database";
@@ -72,7 +72,9 @@ namespace Repository
             List<ProductDetails> productDetails = new List<ProductDetails>();
             try
             {
-                var dt = SqlHelper.GetTableFromSP("USP_GET_ALL_PRODUCTS");
+                SqlParameter[] sqlParameters = new SqlParameter[1];
+                sqlParameters[0] = new SqlParameter { ParameterName = "@flag", Value = "SL" };
+                var dt = SqlHelper.GetTableFromSP("Usp_Products", sqlParameters);
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     foreach (DataRow row in dt.Rows)
@@ -87,12 +89,19 @@ namespace Repository
                     serviceRes.Data = productDetails;
                     serviceRes.IsSuccess = true;
                     serviceRes.ReturnCode = "200";
-                    serviceRes.ReturnMsg = "OK";
+                    serviceRes.ReturnMsg = "All Product details ";
+                }
+                else
+                {
+                    serviceRes.Data = null;
+                    serviceRes.IsSuccess = false;
+                    serviceRes.ReturnCode = "202";
+                    serviceRes.ReturnMsg = "Product data not found";
                 }
             }
             catch (Exception ex)
             {
-                LogManager.WriteLog(ex, Enum.Enums.SeverityLevel.Important);
+                LogManager.WriteLog(ex);
             }
             return serviceRes;
         }
@@ -132,7 +141,7 @@ namespace Repository
             }
             catch (Exception ex)
             {
-                LogManager.WriteLog(ex, SeverityLevel.Critical);
+                LogManager.WriteLog(ex);
             }
             return serviceRes;
         }
@@ -160,7 +169,7 @@ namespace Repository
             }
             catch (Exception ex)
             {
-                LogManager.WriteLog(ex, SeverityLevel.Critical);
+                LogManager.WriteLog(ex);
             }
             return serviceRes;
         }

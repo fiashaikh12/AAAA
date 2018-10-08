@@ -56,7 +56,7 @@ namespace Repository
             }
             catch(Exception ex)
             {
-                LogManager.WriteLog(ex, SeverityLevel.Critical);
+                LogManager.WriteLog(ex);
             }
             return serviceRes;
         }
@@ -91,7 +91,7 @@ namespace Repository
             }
             catch (Exception ex)
             {
-                LogManager.WriteLog(ex, SeverityLevel.Critical);
+                LogManager.WriteLog(ex);
             }
             return serviceRes;
         }
@@ -179,7 +179,7 @@ namespace Repository
             }
             catch (Exception ex)
             {
-                LogManager.WriteLog(ex, SeverityLevel.Critical);
+                LogManager.WriteLog(ex);
             }
             return serviceRes;
         }
@@ -209,8 +209,8 @@ namespace Repository
                 parameter[15] = new SqlParameter { ParameterName = "@IpAddress", Value = objRegister.IpAddress };
                 parameter[16] = new SqlParameter { ParameterName = "@PanNumber", Value = objRegister.PanNumber };
                 parameter[17] = new SqlParameter { ParameterName = "@CompanyImage", Value = fileLocation };
-                parameter[18] = new SqlParameter { ParameterName = "@Latitude", Value = Convert.FromBase64String(objRegister.Latitude) };
-                parameter[19] = new SqlParameter { ParameterName = "@Longitude", Value = Convert.FromBase64String(objRegister.Longitude) };
+                parameter[18] = new SqlParameter { ParameterName = "@Latitude", Value = objRegister.Latitude };
+                parameter[19] = new SqlParameter { ParameterName = "@Longitude", Value = objRegister.Longitude};
                 DataTable dt = SqlHelper.GetTableFromSP("Usp_RegisterUser", parameter);
                 var returnValue = dt.Rows[0][0];
                 if (Convert.ToInt32(returnValue) == 1 )
@@ -234,7 +234,7 @@ namespace Repository
             }
             catch (Exception ex)
             {
-                LogManager.WriteLog(ex, SeverityLevel.Important);
+                LogManager.WriteLog(ex);
             }
             return serviceRes;
         }
@@ -265,7 +265,7 @@ namespace Repository
             }
             catch(Exception ex)
             {
-                LogManager.WriteLog(ex, SeverityLevel.Important);
+                LogManager.WriteLog(ex);
             }
             return serviceRes;
         }
@@ -289,7 +289,7 @@ namespace Repository
             }
             catch(Exception ex)
             {
-                LogManager.WriteLog(ex, SeverityLevel.Critical);
+                LogManager.WriteLog(ex);
             }
             return returnValue;
         } 

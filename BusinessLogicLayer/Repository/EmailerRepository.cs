@@ -58,7 +58,7 @@ namespace BusinessLogicLayer.Repository
             }
             catch(Exception ex)
             {
-                LogManager.WriteLog(ex, Enum.Enums.SeverityLevel.Important);
+                LogManager.WriteLog(ex);
             }
             return emailSend;
         }

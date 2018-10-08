@@ -14,7 +14,7 @@ namespace Filters
     {
         public override void OnException(HttpActionExecutedContext actionExecutedContext)
         {
-            LogManager.WriteLog(actionExecutedContext.Exception, Enum.Enums.SeverityLevel.Important);
+            LogManager.WriteLog(actionExecutedContext.Exception);
             var exceptionResponse = new HttpResponseMessage(HttpStatusCode.InternalServerError)
             {
                 Content = new StringContent("An unhandled exception was thrown by service."),  

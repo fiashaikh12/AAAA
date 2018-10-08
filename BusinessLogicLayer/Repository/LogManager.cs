@@ -43,7 +43,7 @@ namespace Repository
         #endregion
 
         #region Write log to database
-        public static void WriteLog(Exception ex, SeverityLevel level)
+        public static void WriteLog(Exception ex)
         {
             
             try
@@ -53,7 +53,7 @@ namespace Repository
                 ErrorDetails objError = new ErrorDetails()
                 {
                     Time = DateTime.Now,
-                    SeverityLevel = level,
+                    SeverityLevel = SeverityLevel.Important,
                     InnerInception = Convert.ToString(ex.InnerException),
                     MethodName = frame.GetMethod().Name,
                     Message = ex.Message,
@@ -71,7 +71,7 @@ namespace Repository
                 parameter[6] = new SqlParameter { ParameterName = "@InnerInception", Value = objError.InnerInception };
                 SqlHelper.ExecuteNonQuery("Usp_ErrorLog", parameter);
             }
-            catch(Exception exce) {  }
+            catch {   }
         }
         #endregion
     }

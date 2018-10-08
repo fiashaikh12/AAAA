@@ -39,7 +39,7 @@ namespace Repository
             }
             catch (Exception ex)
             {
-                LogManager.WriteLog(ex, SeverityLevel.Critical);
+                LogManager.WriteLog(ex);
                 serviceRes.Data = null;
                 serviceRes.IsSuccess = false;
                 serviceRes.ReturnCode = "500";
@@ -73,7 +73,7 @@ namespace Repository
             }
             catch (Exception ex)
             {
-                LogManager.WriteLog(ex, SeverityLevel.Critical);
+                LogManager.WriteLog(ex);
                 serviceRes.Data = null;
                 serviceRes.IsSuccess = false;
                 serviceRes.ReturnCode = "500";
@@ -105,7 +105,7 @@ namespace Repository
             }
             catch (Exception ex)
             {
-                LogManager.WriteLog(ex, SeverityLevel.Critical);
+                LogManager.WriteLog(ex);
                 serviceRes.Data = null;
                 serviceRes.IsSuccess = false;
                 serviceRes.ReturnCode = "500";
@@ -137,7 +137,7 @@ namespace Repository
             }
             catch (Exception ex)
             {
-                LogManager.WriteLog(ex, SeverityLevel.Critical);
+                LogManager.WriteLog(ex);
                 serviceRes.Data = null;
                 serviceRes.IsSuccess = false;
                 serviceRes.ReturnCode = "500";
@@ -186,7 +186,7 @@ namespace Repository
                 }
                 catch (Exception ex)
                 {
-                    LogManager.WriteLog(ex, SeverityLevel.Important);
+                    LogManager.WriteLog(ex);
                 }
 
             }
