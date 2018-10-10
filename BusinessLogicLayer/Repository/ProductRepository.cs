@@ -20,23 +20,22 @@ namespace Repository
                 if (objProduct != null)
                 {
                     ICommonRepository _commonRepository = new CommonRepository();
-                    string fileLocation = _commonRepository.Base64toImage(objProduct.ImagePath, "Images", "ProductImages");
-                    SqlParameter[] sqlParameters = new SqlParameter[14];
-                    sqlParameters[0] = new SqlParameter { ParameterName = "@Product_Name", Value = objProduct.Name };
+                    string fileLocation = _commonRepository.Base64toImage(objProduct.ImagePath, "Images", "ProductImages","ProductPhoto");
+                    SqlParameter[] sqlParameters = new SqlParameter[13];
+                    sqlParameters[0] = new SqlParameter { ParameterName = "@Name", Value = objProduct.Name };
                     sqlParameters[1] = new SqlParameter { ParameterName = "@SKUNumber", Value = objProduct.SKUNumber };
-                    sqlParameters[2] = new SqlParameter { ParameterName = "@Product_Description", Value = objProduct.Specification };
+                    sqlParameters[2] = new SqlParameter { ParameterName = "@Specification", Value = objProduct.Specification };
                     sqlParameters[3] = new SqlParameter { ParameterName = "@Price", Value = objProduct.Price };
                     sqlParameters[4] = new SqlParameter { ParameterName = "@IsPackaging", Value = objProduct.IsPackaging };
                     sqlParameters[5] = new SqlParameter { ParameterName = "@IsAvailable", Value = objProduct.IsAvailable };
-                    sqlParameters[6] = new SqlParameter { ParameterName = "@Photos_Url", Value = objProduct.ImagePath };
-                    sqlParameters[7] = new SqlParameter { ParameterName = "@Discount", Value = objProduct.Discount };
-                    sqlParameters[8] = new SqlParameter { ParameterName = "@Product_Category_Id", Value = objProduct.CategoryId };
-                    sqlParameters[9] = new SqlParameter { ParameterName = "@Product_SubCategory_Id", Value = objProduct.SubCategoryId };
-                    sqlParameters[10] = new SqlParameter { ParameterName = "@Quantity", Value = objProduct.Quantity };
-                    sqlParameters[11] = new SqlParameter { ParameterName = "@Photos_Url", Value = fileLocation };
-                    sqlParameters[12] = new SqlParameter { ParameterName = "@Member_Id", Value = objProduct.UserId };
-                    sqlParameters[13] = new SqlParameter { ParameterName = "@flag", Value = "A" };
-                    int returnValue = SqlHelper.ExecuteNonQuery("Usp_Products", sqlParameters);
+                    sqlParameters[6] = new SqlParameter { ParameterName = "@Discount", Value = objProduct.Discount };
+                    sqlParameters[7] = new SqlParameter { ParameterName = "@Category_Id", Value = objProduct.CategoryId };
+                    sqlParameters[8] = new SqlParameter { ParameterName = "@SubCategory_Id", Value = objProduct.SubCategoryId };
+                    sqlParameters[9] = new SqlParameter { ParameterName = "@Quantity", Value = objProduct.Quantity };
+                    sqlParameters[10] = new SqlParameter { ParameterName = "@Photos_Url", Value = fileLocation };
+                    sqlParameters[11] = new SqlParameter { ParameterName = "@Member_Id", Value = objProduct.UserId };
+                    sqlParameters[12] = new SqlParameter { ParameterName = "@flag", Value = "A" };
+                    int returnValue = SqlHelper.ExecuteNonQuery("Usp_Products_Test", sqlParameters);
                     if (returnValue > 0)
                     {
                         serviceRes.IsSuccess = true;

@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Entities;
 using System.Data.SqlClient;
 using DataAccessLayer;
 using System.Data;
-using BusinessLogicLayer.Repository;
-using static Enum.Enums;
 using System.Web.Hosting;
 using System.IO;
 
@@ -146,24 +141,24 @@ namespace Repository
             return serviceRes;
         }
 
-        public string Base64toImage(string base64string, string directory, string subdirectory)
+        public string Base64toImage(string base64string, string directory, string subdirectory,string fileName)
         {
-            string filelocation = "NA";
-            if (base64string != "" || base64string != null)
+            string filelocation = String.Empty;
+            if (!String.IsNullOrEmpty(base64string))
             {
                 try
                 {
-                    bool exists = Directory.Exists(HostingEnvironment.MapPath("~/"+ directory));
+                    //bool exists = Directory.Exists(HostingEnvironment.MapPath("~/"+ directory));
 
-                    if (!exists)
+                    if (!Directory.Exists(HostingEnvironment.MapPath("~/" + directory)))
                         Directory.CreateDirectory(HostingEnvironment.MapPath("~/"+ directory));
 
-                    exists = Directory.Exists(HostingEnvironment.MapPath("~/Images/" + subdirectory));
+                    //exists = Directory.Exists(HostingEnvironment.MapPath("~/Images/" + subdirectory));
 
-                    if (!exists)
-                        Directory.CreateDirectory(HostingEnvironment.MapPath("~/Images/" + subdirectory));
+                    if (!Directory.Exists(HostingEnvironment.MapPath($"~/{directory}/" + subdirectory)))
+                        Directory.CreateDirectory(HostingEnvironment.MapPath($"~/{directory}/" + subdirectory));
 
-                    string imageformat = "";
+                    string imageformat = String.Empty;
                     var data = base64string.Substring(0, 5);
                     switch (data.ToUpper())
                     {
@@ -171,6 +166,7 @@ namespace Repository
                         case "/9J/4": imageformat = ".jpeg"; break;
                         case "AAAAF": imageformat = ".mp4"; break;
                         case "JVBER": imageformat = ".pdf"; break;
+                        case "R0lGO":imageformat = ".gif";break;
                         default: imageformat = ""; break;
                     }
 
@@ -178,10 +174,10 @@ namespace Repository
                     //Convert Base64 Encoded string to Byte Array.
                     byte[] imageBytes = Convert.FromBase64String(base64string);
 
-                    string filename = "Companyphoto_" + DateTime.Now.ToString("yyyyMMdd_hhmmss");
+                    string filename = $"{fileName}_{DateTime.Now.ToString("yyyyMMdd_hhmmss")}";
                     //Save the Byte Array as Image File.
-                    filelocation = "Images/CompanyPhoto/" + filename + imageformat;
-                    string filePath = Path.Combine(HostingEnvironment.MapPath("~/Images/" + subdirectory + "/") + filename + imageformat);
+                    filelocation = $"{directory}/{subdirectory}/" + filename + imageformat;
+                    string filePath = Path.Combine(HostingEnvironment.MapPath($"~/{directory}/{subdirectory}/{filename}{imageformat}"));
                     File.WriteAllBytes(filePath, imageBytes);
                 }
                 catch (Exception ex)
@@ -192,6 +188,11 @@ namespace Repository
             }
 
             return filelocation;
+        }
+
+        public bool IsBase64Valid(string base64String)
+        {
+            throw new NotImplementedException();
         }
     }
 }

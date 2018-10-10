@@ -16,15 +16,11 @@ namespace Filters
         }
         public override void OnAuthorization(HttpActionContext actionContext)
         {
-            _token.AccessToken = ((string[])actionContext.Request.Headers.GetValues("Token"))[0];
+            _token.AccessToken = ((string[])actionContext.Request.Headers.GetValues("oAuthToken"))[0];
             _token.UserId =((string[])actionContext.Request.Headers.GetValues("UserId"))[0];
             if (!_instance.IsTokenValid(_token))
             {
                 actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
-            }
-            else
-            {
-                actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.OK);
             }
         }
     }

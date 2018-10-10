@@ -189,7 +189,7 @@ namespace Repository
             ServiceRes serviceRes = new ServiceRes();
             try
             {
-                string fileLocation = commonRepository.Base64toImage(objRegister.CompanyPhoto, "Images", "CompanyPhoto");
+                string fileLocation = commonRepository.Base64toImage(objRegister.CompanyPhoto, "Images", "CompanyPhoto","CompanyPhoto");
                 SqlParameter[] parameter = new SqlParameter[20];
                 parameter[0] = new SqlParameter { ParameterName = "@Mobile", Value = objRegister.MobileNumber };
                 parameter[1] = new SqlParameter { ParameterName = "@Password", Value = _objRepo.Encrypt(objRegister.Password) };
