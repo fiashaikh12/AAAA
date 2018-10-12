@@ -64,8 +64,10 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CryptographyRepository.cs" />
+    <Compile Include="Repository\DashboardRepository.cs" />
     <Compile Include="Repository\EmailerRepository.cs" />
     <Compile Include="Repository\Interface\ICryptography.cs" />
+    <Compile Include="Repository\Interface\IDashboard.cs" />
     <Compile Include="Repository\Interface\IEmailer.cs" />
     <Compile Include="Repository\Interface\ILog.cs" />
     <Compile Include="Repository\Interface\IProductRepository.cs" />

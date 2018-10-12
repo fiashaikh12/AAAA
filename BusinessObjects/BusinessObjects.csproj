@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Common.cs" />
+    <Compile Include="Entities\Distributros.cs" />
     <Compile Include="Entities\ErrorDetails.cs" />
     <Compile Include="Entities\Jwt\JWTAuthenticationIdentity.cs" />
     <Compile Include="Entities\Message.cs" />

@@ -1,4 +1,5 @@
-﻿using Entities;
+﻿using BusinessObjects.Entities;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Interface
 {
     public interface IDashboard
     {
-        ServiceRes NearByDistributors();
+        ServiceRes NearByDistributors(NearByDistributors nearBy);
     }
 }
