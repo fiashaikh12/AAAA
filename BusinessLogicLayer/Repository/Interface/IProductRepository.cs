@@ -9,7 +9,8 @@ namespace Repository
         ServiceRes AddProduct(ProductDetails objProduct);
         ServiceRes DeleteProduct(int productId);
         ServiceRes UpdateProduct(ProductDetails objProduct);
-        ServiceRes GetAllProductDetails();
+        ServiceRes GetAllProduct();
+        ServiceRes GetProductDetailById();
         ServiceRes GetCategoryMaster();
         ServiceRes GetSubCategoryMaster(int categoryId);
     }

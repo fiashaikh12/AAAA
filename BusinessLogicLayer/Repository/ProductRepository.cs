@@ -65,7 +65,7 @@ namespace Repository
             throw new NotImplementedException();
         }
 
-        public ServiceRes GetAllProductDetails()
+        public ServiceRes GetAllProduct()
         {
             ServiceRes<List<ProductDetails>> serviceRes = new ServiceRes<List<ProductDetails>>();
             List<ProductDetails> productDetails = new List<ProductDetails>();
@@ -76,26 +76,18 @@ namespace Repository
                 var dt = SqlHelper.GetTableFromSP("Usp_Products", sqlParameters);
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        productDetails.Add(new ProductDetails
-                        {
-                            //Name = Convert.ToString(row[""]),
-                            //EmailAddress = Convert.ToString(row[""]),
-                            //Mobile = Convert.ToString(row[""])
-                        });
-                    }
+                    
                     serviceRes.Data = productDetails;
                     serviceRes.IsSuccess = true;
                     serviceRes.ReturnCode = "200";
-                    serviceRes.ReturnMsg = "All Product details ";
+                    serviceRes.ReturnMsg = "Product list ";
                 }
                 else
                 {
                     serviceRes.Data = null;
                     serviceRes.IsSuccess = false;
                     serviceRes.ReturnCode = "202";
-                    serviceRes.ReturnMsg = "Product data not found";
+                    serviceRes.ReturnMsg = "Product not found";
                 }
             }
             catch (Exception ex)
@@ -171,6 +163,11 @@ namespace Repository
                 LogManager.WriteLog(ex);
             }
             return serviceRes;
+        }
+
+        public ServiceRes GetProductDetailById()
+        {
+            throw new NotImplementedException();
         }
     }
 }

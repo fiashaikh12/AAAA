@@ -29,7 +29,7 @@ namespace BusinessLogicLayer.Repository
                         Select(x => new NearByDistributors {
                             CompanyName=x.Field<string>("Company_Name"),
                             Distance=x.Field<double>("Distance"),
-                            UserId=x.Field<int>("Member_Id")
+                            UserId =x.Field<int>("Member_Id")
                         }).ToList();
                     serviceRes.Data = nearByDistributors;
                     serviceRes.IsSuccess = true;

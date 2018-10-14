@@ -8,7 +8,7 @@ namespace BusinessObjects.Entities
 {
     public class Distributros
     {
-        public int UserId { get; set; }
+        public List<NearByDistributors> Distributors { get; }
     }
     public class NearByDistributors
     {
@@ -17,6 +17,11 @@ namespace BusinessObjects.Entities
         //public string PanNumber { get; set; }
         //public string GSTNumber { get; set; }
         public double Distance { get; set; }
+        public string  Kilometer {
+            get {
+                return string.Format("{0:0.00km}", this.Distance / 100000);
+            }
+        }
         //public string CompanyPhotoURL { get; set; }
         //public string BusinessName { get; set; }
     }

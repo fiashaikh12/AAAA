@@ -19,7 +19,7 @@ namespace MerchantDistributorService_API.Controllers
         [HttpPost, DeflateCompression,Cache(TimeDuration =10)]
         public IHttpActionResult GetProductList()
         {
-                    return Ok(_productRepository.GetAllProductDetails());
+                    return Ok(_productRepository.GetAllProduct());
         }
         [HttpPost]
         public IHttpActionResult AddProduct(ProductDetails request)

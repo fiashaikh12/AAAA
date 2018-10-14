@@ -101,6 +101,7 @@ namespace Repository
             ServiceRes<Token> serviceRes = new ServiceRes<Token>();
             try
             {
+                LoginDetails loginDetails = new LoginDetails() ;
                 TokenRepository tokenRepository = TokenRepository.GetInstance;
                 SqlParameter[] parameter = new SqlParameter[1];
                 parameter[0] = new SqlParameter { ParameterName = "@MobileNumber", Value = objUser.MobileNumber };
@@ -121,22 +122,19 @@ namespace Repository
                         string username = Convert.ToString(dtUser.Rows[0][1]);
                         bool isLocked = Convert.ToBoolean(dtUser.Rows[0][3]);
                         int loginAttempts = Convert.ToInt32(dtUser.Rows[0][4]);
-                        bool isLogedIn = Convert.ToBoolean(dtUser.Rows[0][5]);
-
+                        //bool isLogedIn = Convert.ToBoolean(dtUser.Rows[0][5]);
+                        int roleId = Convert.ToInt32(dtUser.Rows[0][7]);
                         if ((username.Equals(objUser.MobileNumber) && decryptedPassword.Equals(objUser.Password))) {
                             if (!isLocked) {
                                 //reset login attempts and is locked column
-                                LoginDetails loginDetails = new LoginDetails()
-                                {
-                                    MobileNumber = objUser.MobileNumber,
-                                    IsLocked = false,
-                                    LoginAttempts = 3,
-                                    IsLogedIn = true
-                                };
-                                UpdateLoginDetails(loginDetails);
+                                loginDetails.MobileNumber = objUser.MobileNumber;
+                                loginDetails.IsLocked = false;
+                                loginDetails.LoginAttempts = 3;
+                                loginDetails.IsLogedIn = true;
+                                //UpdateLoginDetails(loginDetails);
                                 serviceRes.IsSuccess = true;
                                 serviceRes.ReturnCode = "200";
-                                serviceRes.ReturnMsg = "Username verified";
+                                serviceRes.ReturnMsg = $"{roleId}";
                                 serviceRes.Data = tokenRepository.GenerateToken(memberId);
                             }
                             else {
@@ -153,14 +151,11 @@ namespace Repository
                             loginAttempts = loginAttempts - 1;
                             if (loginAttempts > 0)
                             {
-                                LoginDetails loginDetails = new LoginDetails()
-                                {
-                                    MobileNumber = objUser.MobileNumber,
-                                    IsLocked = false,
-                                    LoginAttempts = loginAttempts,
-                                    IsLogedIn = false
-                                };
-                                UpdateLoginDetails(loginDetails);
+                                loginDetails.MobileNumber = objUser.MobileNumber;
+                                loginDetails.IsLocked = false;
+                                loginDetails.LoginAttempts = loginAttempts;
+                                loginDetails.IsLogedIn = false;
+                                //UpdateLoginDetails(loginDetails);
                                 //update attempts left and return status as wrong password
                                 serviceRes.IsSuccess = false;
                                 serviceRes.ReturnCode = "403";
@@ -174,6 +169,7 @@ namespace Repository
                                 serviceRes.ReturnMsg = $"Account locked for user {objUser.MobileNumber}. Please contact your administrator";
                             }
                         }
+                        UpdateLoginDetails(loginDetails);
                     }
                 }
             }
