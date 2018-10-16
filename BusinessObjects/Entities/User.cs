@@ -54,4 +54,11 @@ namespace Entities
         public bool IsLocked { get; set; }
         public bool IsLogedIn { get; set; }
     }
+    public class LoginResponse {
+        public string  CompanyName { get; set; }
+        public string  FullName { get; set; }
+        public int RoleId { get; set; }
+        public int UserId { get; set; }
+        public string oAuthToken { get; set; }
+    }
 }

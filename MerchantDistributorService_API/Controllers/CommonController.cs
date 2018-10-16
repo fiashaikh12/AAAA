@@ -5,7 +5,7 @@ using System.Web.Http;
 
 namespace MerchantDistributorService_API.Controllers
 {
-    [CustomAuthorize]
+    //[CustomAuthorize]
     public class CommonController : ApiController
     {
         private readonly ICommonRepository _commonRepository;

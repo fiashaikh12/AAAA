@@ -98,11 +98,11 @@ namespace Repository
 
         public ServiceRes IsUserValid(User objUser)
         {
-            ServiceRes<Token> serviceRes = new ServiceRes<Token>();
+            ServiceRes<LoginResponse> serviceRes = new ServiceRes<LoginResponse>();
             try
             {
                 LoginDetails loginDetails = new LoginDetails() ;
-                TokenRepository tokenRepository = TokenRepository.GetInstance;
+                //TokenRepository tokenRepository = TokenRepository.GetInstance;
                 SqlParameter[] parameter = new SqlParameter[1];
                 parameter[0] = new SqlParameter { ParameterName = "@MobileNumber", Value = objUser.MobileNumber };
 
@@ -122,20 +122,31 @@ namespace Repository
                         string username = Convert.ToString(dtUser.Rows[0][1]);
                         bool isLocked = Convert.ToBoolean(dtUser.Rows[0][3]);
                         int loginAttempts = Convert.ToInt32(dtUser.Rows[0][4]);
+                        string companyName = Convert.ToString(dtUser.Rows[0][7]); ;
+                        string fullName = Convert.ToString(dtUser.Rows[0][6]); ;
                         //bool isLogedIn = Convert.ToBoolean(dtUser.Rows[0][5]);
-                        int roleId = Convert.ToInt32(dtUser.Rows[0][7]);
+                        int roleId = Convert.ToInt32(dtUser.Rows[0][5]);
+                        
                         if ((username.Equals(objUser.MobileNumber) && decryptedPassword.Equals(objUser.Password))) {
                             if (!isLocked) {
                                 //reset login attempts and is locked column
+                                LoginResponse loginResponse = new LoginResponse
+                                {
+                                    CompanyName = companyName,
+                                    FullName = fullName,
+                                    RoleId = roleId,
+                                    UserId = memberId
+                                };
                                 loginDetails.MobileNumber = objUser.MobileNumber;
                                 loginDetails.IsLocked = false;
                                 loginDetails.LoginAttempts = 3;
                                 loginDetails.IsLogedIn = true;
                                 //UpdateLoginDetails(loginDetails);
+                                
                                 serviceRes.IsSuccess = true;
                                 serviceRes.ReturnCode = "200";
-                                serviceRes.ReturnMsg = $"{roleId}";
-                                serviceRes.Data = tokenRepository.GenerateToken(memberId);
+                                serviceRes.ReturnMsg = $"User authenticated";
+                                serviceRes.Data = loginResponse;//tokenRepository.GenerateToken(memberId);
                             }
                             else {
                                 //return account suspended status

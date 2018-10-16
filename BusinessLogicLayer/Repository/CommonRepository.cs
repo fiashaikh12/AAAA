@@ -6,6 +6,7 @@ using DataAccessLayer;
 using System.Data;
 using System.Web.Hosting;
 using System.IO;
+using System.Linq;
 
 namespace Repository
 {
@@ -16,29 +17,24 @@ namespace Repository
             ServiceRes<List<BusinessTypeCategory>> serviceRes = new ServiceRes<List<BusinessTypeCategory>>();
             try
             {
-                List<BusinessTypeCategory> businesses = new List<BusinessTypeCategory>();
-                DataTable dtCities = SqlHelper.GetTableFromSP("Usp_GetBusinessMaster");
-                foreach (DataRow row in dtCities.Rows)
+                DataTable dtBusinessMaster = SqlHelper.GetTableFromSP("Usp_GetBusinessMaster");
+                if (dtBusinessMaster.Rows.Count > 0)
                 {
-                    BusinessTypeCategory businessCategory = new BusinessTypeCategory
-                    {
-                        BusinessId = Convert.ToInt32(row["Business_Id"]),
-                        BusinessName = Convert.ToString(row["Name"])
-                    };
-                    businesses.Add(businessCategory);
+                    List<BusinessTypeCategory> businessCategory = dtBusinessMaster.AsEnumerable().
+                            Select(x => new BusinessTypeCategory
+                            {
+                                BusinessId = x.Field<int>("Business_Id"),
+                                BusinessName = x.Field<string>("Name")
+                            }).ToList();
+                    serviceRes.Data = businessCategory;
+                    serviceRes.IsSuccess = true;
+                    serviceRes.ReturnCode = "200";
+                    serviceRes.ReturnMsg = "Business master";
                 }
-                serviceRes.Data = businesses;
-                serviceRes.IsSuccess = true;
-                serviceRes.ReturnCode = "200";
-                serviceRes.ReturnMsg = "Category master";
             }
             catch (Exception ex)
             {
                 LogManager.WriteLog(ex);
-                serviceRes.Data = null;
-                serviceRes.IsSuccess = false;
-                serviceRes.ReturnCode = "500";
-                serviceRes.ReturnMsg = "Something went wrong";
             }
             return serviceRes;
         }
