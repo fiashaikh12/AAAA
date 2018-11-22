@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
-using BusinessLogicLayer.Repository;
 using Interface;
 using Repository;
 using System.Reflection;
@@ -25,12 +24,14 @@ namespace AutoFactory
             //builder.RegisterAssemblyTypes(Assembly.Load(nameof(BusinessLogicLayer))).
             //Where(t => t.Namespace.Contains("Repository.Interface"))
             //.As(t => t.GetInterfaces().FirstOrDefault(i => i.Name == "I" + t.Name));
-
+           
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerRequest();
             builder.RegisterType<CommonRepository>().As<ICommonRepository>().InstancePerRequest();
             builder.RegisterType<ProductRepository>().As<IProductRepository>().InstancePerRequest();
             builder.RegisterType<DashboardRepository>().As<IDashboard>().InstancePerRequest();
+            builder.RegisterType<AdminRepository>().As<IAdmin>().InstancePerRequest();
+            builder.RegisterType<CartRepository>().As<ICart>().InstancePerRequest();
             container = builder.Build();
             return container;
         }

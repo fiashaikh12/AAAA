@@ -4,16 +4,16 @@ using Repository;
 using System;
 using System.Configuration;
 using System.Net;
-using System.Net.Mail;
 using System.Threading.Tasks;
+using System.Web.Mail;
 
-namespace BusinessLogicLayer.Repository
+namespace Repository
 {
     public class EmailerRepository : IEmailer
     {
         private static readonly object padlock = new object();
         private readonly string _email = ConfigurationManager.AppSettings["EmailFrom"].ToString();
-        private readonly string _password = ConfigurationManager.AppSettings["EmailPassword"].ToString();
+        //private readonly string _password = ConfigurationManager.AppSettings["EmailPassword"].ToString();
         private static EmailerRepository _instance = null;
         public static EmailerRepository GetInstance
         {
@@ -39,21 +39,19 @@ namespace BusinessLogicLayer.Repository
             {
                 if (!string.IsNullOrEmpty(emailAddress))
                 {
-                    using (MailMessage mail = new MailMessage())
+                    MailMessage objMail = new MailMessage
                     {
-                        mail.From = new MailAddress(_email);
-                        mail.To.Add(emailAddress);
-                        mail.Subject = "Forgot password";
-                        mail.Body = $"Your password is {password}";
-                        mail.IsBodyHtml = false;
-                        using (SmtpClient client = new SmtpClient("relay-hosting.secureserver.net", 25))
-                        {
-                            client.Credentials = new NetworkCredential(_email, _password);
-                            client.EnableSsl = true;
-                            client.Send(mail);
-                            emailSend = true;
-                        }
-                    }
+                        From = _email,
+                        To = emailAddress,
+                        Subject = "Forgot password",
+                        BodyFormat = MailFormat.Html,
+                        Priority = MailPriority.High,
+                        Body = $"Your password is {password}"
+                    };
+
+                    SmtpMail.SmtpServer = "relay-hosting.secureserver.net";
+                    SmtpMail.Send(objMail);
+                    emailSend = true;
                 }
             }
             catch(Exception ex)

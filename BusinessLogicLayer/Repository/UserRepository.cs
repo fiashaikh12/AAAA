@@ -4,7 +4,6 @@ using System.Data.SqlClient;
 using System.Data;
 using Entities;
 using static Enum.Enums;
-using BusinessLogicLayer.Repository;
 
 namespace Repository
 {
@@ -87,7 +86,13 @@ namespace Repository
                             serviceRes.ReturnMsg = "Something went wrong";
                         }
                     }
-                }              
+                }
+                else
+                {
+                    serviceRes.IsSuccess = false;
+                    serviceRes.ReturnCode = "404";
+                    serviceRes.ReturnMsg = "Data not found";
+                }
             }
             catch (Exception ex)
             {

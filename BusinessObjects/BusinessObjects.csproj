@@ -41,11 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Admin.cs" />
+    <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Common.cs" />
     <Compile Include="Entities\Distributros.cs" />
     <Compile Include="Entities\ErrorDetails.cs" />
-    <Compile Include="Entities\Jwt\JWTAuthenticationIdentity.cs" />
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\Message_Recipeint.cs" />
     <Compile Include="Entities\ProductDetails.cs" />

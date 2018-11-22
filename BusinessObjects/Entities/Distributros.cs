@@ -24,8 +24,9 @@ namespace Entities
     {
         public int UserId { get; set; }
         public string CompanyName { get; set; }
-        //public string PanNumber { get; set; }
-        //public string GSTNumber { get; set; }
+        public int PinCode { get; set; }
+        public string State { get; set; }
+        public string City { get; set; }
         public double Distance { get; set; }
         public string  Kilometer {
             get {
@@ -35,7 +36,7 @@ namespace Entities
 
         public int CategoryId { get; set; }
         public int SubCategoryId { get; set; }
-        //public string CompanyPhotoURL { get; set; }
-        //public string BusinessName { get; set; }
+        public string Building_Name { get; set; }
+        public string Locality { get; set; }
     }
 }

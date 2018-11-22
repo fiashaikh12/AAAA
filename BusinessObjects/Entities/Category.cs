@@ -1,6 +1,6 @@
 ﻿namespace Entities
 {
-    public class ProductCategory
+    public class ProductCategory:NearByDistributors
     {
         public int CategoryId { get; set; }
         public string Name { get; set; }

@@ -8,7 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace BusinessLogicLayer.Repository
+namespace Repository
 {
     public class DashboardRepository : IDashboard
     {
@@ -25,7 +25,13 @@ namespace BusinessLogicLayer.Repository
                     List<ProductCategory> productCategories = dtByDistributors.AsEnumerable().
                         Select(x => new ProductCategory {
                             CategoryId=x.Field<int>("Product_Category_Id"),
-                            Name=x.Field<string>("Product_Name")
+                            Name=x.Field<string>("Product_Name"),
+                            CompanyName=x.Field<string>("Company_Name"),
+                            Building_Name=x.Field<string>("Building_Name"),
+                            Locality=x.Field<string>("Locality"),
+                            PinCode=Convert.ToInt32(x.Field<int>("PinCode")),
+                            State=x.Field<string>("State"),
+                            City=x.Field<string>("City")
                         }).ToList();
                     serviceRes.Data = productCategories;
                     serviceRes.IsSuccess = true;
@@ -99,7 +105,7 @@ namespace BusinessLogicLayer.Repository
                             Price = x.Field<decimal>("Price"),
                             Specification = x.Field<string>("Specification"),
                             Quantity = x.Field<int>("Quantity"),
-                            Photos_Url = $"escandent.com/{x.Field<string>("Photos_Url")}",
+                            Photos_Url = $"http://escandent.com/{x.Field<string>("Photos_Url")}",
                             Name = x.Field<string>("Name")
                         }).ToList();
                     serviceRes.Data = productDetails;

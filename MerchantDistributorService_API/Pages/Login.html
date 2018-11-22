@@ -1,0 +1,54 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Admin</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.btnLogIn').on('click', function () {
+                var data = { Username: $('.username').val(), Password: $('.password').val() };
+                var requestType = "POST";
+                var url = "http://localhost:2334/api/Admin/ValidateAdmin"
+                var res = AjaxCall(requestType, url, data);
+                if (res.IsSuccess === true && res.ReturnCode == "200") {
+                    window.location.href = "/Pages/Admin.html"
+                }
+                else {
+                    $('.error').text("Wrong credentials provided.Please login with valid data.");
+                }
+            })
+        });
+
+        var AjaxCall = function (requestType, url, data) {
+            var result;
+            $.ajax({
+                type: requestType,
+                url: url,
+                data: data,
+                async: false,
+                success: function (response) {
+                    console.log(response)
+                    result = response;
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            });
+            return result;
+        }
+
+    </script>
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+            <div class="login-form">
+                <input type="text" name="username" class="username" required placeholder="Username" />
+                <input type="password" name="password" class="password" required placeholder="Password" />
+                <button class="btnLogIn">Login</button>
+                <span class="error" style="color:red;font-size:15px;"></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>   
