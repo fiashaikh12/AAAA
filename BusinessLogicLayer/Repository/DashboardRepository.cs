@@ -101,12 +101,13 @@ namespace Repository
                 {
                     List<ProductListByCategory> productDetails = dtProductByCategory.AsEnumerable().
                         Select(x => new ProductListByCategory
-                        {
+                        { 
                             Price = x.Field<decimal>("Price"),
                             Specification = x.Field<string>("Specification"),
                             Quantity = x.Field<int>("Quantity"),
                             Photos_Url = $"http://escandent.com/{x.Field<string>("Photos_Url")}",
-                            Name = x.Field<string>("Name")
+                            Name = x.Field<string>("Name"),
+                            ProductId=x.Field<int>("Product_Id")
                         }).ToList();
                     serviceRes.Data = productDetails;
                     serviceRes.IsSuccess = true;

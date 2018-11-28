@@ -14,6 +14,7 @@ namespace Entities
     }
     public class ProductListByCategory
     {
+        public int ProductId { get; set; }
         public decimal Price { get; set; }
         public string Specification { get; set; }
         public int Quantity { get; set; }

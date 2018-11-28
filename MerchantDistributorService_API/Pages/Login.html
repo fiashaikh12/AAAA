@@ -17,6 +17,27 @@
                     $('.error').text("Wrong credentials provided.Please login with valid data.");
                 }
             })
+
+            $('.orderConfir').on('click', function () {
+                var url = "http://localhost:2334/api/cart/OrderConfirmation";
+                var request = [];
+                request.push({ OrderNumber: 'ORD12345', PaymentMode: 'Firoz' });
+                var result;
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: { request: request},
+                    async: false,
+                    success: function (response) {
+                        console.log(response)
+                        result = response;
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                });
+                console.log(result);
+            })
         });
 
         var AjaxCall = function (requestType, url, data) {
@@ -48,6 +69,7 @@
                 <button class="btnLogIn">Login</button>
                 <span class="error" style="color:red;font-size:15px;"></span>
             </div>
+            <a href="#" class="orderConfir">Order</a>
         </div>
     </div>
 </body>

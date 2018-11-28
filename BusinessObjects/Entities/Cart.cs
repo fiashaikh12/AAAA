@@ -19,4 +19,9 @@ namespace Entities
         public int DeliveryTimeSlotId { get; set; }
         public int OrderId { get; set; }
     }
+    public class OrderDeliveryTimeSlot
+    {
+        public int TimeSlotId { get; set; }
+        public string TimeSlotText { get; set; }
+    }
 }

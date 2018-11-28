@@ -1,4 +1,5 @@
 ﻿using Entities;
+using System.Collections.Generic;
 
 namespace Interface
 {
@@ -6,7 +7,8 @@ namespace Interface
     {
         ServiceRes AddToCart(Cart cart);
         ServiceRes DeleteItemfromCart(Cart cart);
-        ServiceRes OrderConfirmation(OrderConfirmation orderConfirmation);
-        ServiceRes ViewCartItem();
+        ServiceRes OrderConfirmation(OrderConfirmation[] orderConfirmation);
+        ServiceRes ViewCartItem(Cart cart);
+        ServiceRes DeliveryTimeSlot();
     }
 }

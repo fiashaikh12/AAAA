@@ -3,7 +3,10 @@ using Entities;
 using Interface;
 using Repository;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace Repository
 {
@@ -20,7 +23,7 @@ namespace Repository
                  sqlParameter[3] = new SqlParameter { ParameterName = "@Flag", Value = "A" };
                 sqlParameter[4] = new SqlParameter { ParameterName = "@IsActive", Value = "1" };
                 int returnValue = SqlHelper.ExecuteNonQuery("Usp_Cart", sqlParameter);
-                if(returnValue < 0)
+                if(returnValue > 0)
                 {
                     serviceRes.IsSuccess = true;
                     serviceRes.ReturnCode = "200";
@@ -42,17 +45,126 @@ namespace Repository
 
         public ServiceRes DeleteItemfromCart(Cart cart)
         {
-            throw new System.NotImplementedException();
+            ServiceRes serviceRes = new ServiceRes();
+            try
+            {
+                SqlParameter[] sqlParameters = new SqlParameter[3];
+                sqlParameters[0] = new SqlParameter { ParameterName = "@Member_Id", Value = cart.UserId };
+                sqlParameters[1] = new SqlParameter { ParameterName = "@Product_Id", Value = cart.ProductId };
+                sqlParameters[1] = new SqlParameter { ParameterName = "@Flag", Value = "D" };
+                int ret = SqlHelper.ExecuteNonQuery("Usp_Cart", sqlParameters);
+                if (ret > 0)
+                {
+                    serviceRes.IsSuccess = true;
+                    serviceRes.ReturnCode = "200";
+                    serviceRes.ReturnMsg = "Success";
+                }
+                else
+                {
+                    serviceRes.IsSuccess = false;
+                    serviceRes.ReturnCode = "400";
+                    serviceRes.ReturnMsg = "No item in bag";
+                }
+            }
+            catch (Exception ex)
+            {
+                LogManager.WriteLog(ex);
+            }
+            return serviceRes;
         }
 
-        public ServiceRes OrderConfirmation(OrderConfirmation orderConfirmation)
+        public ServiceRes OrderConfirmation(OrderConfirmation[] orderConfirmation)
         {
-            throw new NotImplementedException();
+            ServiceRes serviceRes = new ServiceRes();
+            try
+            {
+                if (orderConfirmation != null)
+                {
+                    string OrderNumber = $"DO{DateTime.Now.ToString("DDMMYYYYHHmmss")}";
+                    string PaymentMode = "COD";
+                    foreach (var item in orderConfirmation)
+                    {
+
+                    }
+                    serviceRes.IsSuccess = true;
+                    serviceRes.ReturnCode = "200";
+                    serviceRes.ReturnMsg = "Success";
+                }
+                else
+                {
+                    serviceRes.IsSuccess = false;
+                    serviceRes.ReturnCode = "400";
+                    serviceRes.ReturnMsg = "Failed";
+                }
+            }
+            catch(Exception ex)
+            {
+                LogManager.WriteLog(ex);
+            }
+            return serviceRes;
         }
 
-        public ServiceRes ViewCartItem()
+        public ServiceRes DeliveryTimeSlot()
         {
-            throw new NotImplementedException();
+            ServiceRes<List<OrderDeliveryTimeSlot>> serviceRes = new ServiceRes<List<OrderDeliveryTimeSlot>>();
+            try
+            {
+                DataTable dataTable = SqlHelper.GetTableFromSP("Usp_GetDeliveryTimeSlot");
+                serviceRes.Data = dataTable.AsEnumerable().Select(x=>
+                    new OrderDeliveryTimeSlot
+                    {
+                        TimeSlotId=x.Field<int>("Delivery_TimeSlot_ID"),
+                        TimeSlotText=x.Field<string>("Delivery_TimeText")
+                    }).ToList();
+                serviceRes.IsSuccess = true;
+                serviceRes.ReturnCode = "200";
+                serviceRes.ReturnMsg = "Success";
+            }
+            catch(Exception ex)
+            {
+                LogManager.WriteLog(ex);
+            }
+            return serviceRes;
+        }
+
+        public ServiceRes ViewCartItem(Cart cart)
+        {
+            ServiceRes <List<ProductListByCategory>> serviceRes = new ServiceRes<List<ProductListByCategory>>();
+            try
+            {
+                SqlParameter[] sqlParameters = new SqlParameter[2];
+                sqlParameters[0] = new SqlParameter { ParameterName = "@Member_Id", Value = cart.UserId };
+                sqlParameters[1] = new SqlParameter { ParameterName = "@Flag", Value = "S" };
+                DataTable dataTable = SqlHelper.GetTableFromSP("Usp_Cart", sqlParameters);
+                if (dataTable.Rows.Count > 0)
+                {
+                    List<ProductListByCategory> productDetails = dataTable.AsEnumerable().
+                        Select(x => new ProductListByCategory
+                        {
+                            Price = x.Field<decimal>("Price"),
+                            Specification = x.Field<string>("Specification"),
+                            Quantity = x.Field<int>("Quantity"),
+                            Photos_Url = $"http://escandent.com/{x.Field<string>("Photos_Url")}",
+                            Name = x.Field<string>("Name"),
+                            ProductId = x.Field<int>("Product_Id")
+                        }).ToList();
+                    serviceRes.Data = productDetails;
+                    serviceRes.IsSuccess = true;
+                    serviceRes.ReturnCode = "200";
+                    serviceRes.ReturnMsg = "Success";
+                }
+                else
+                {
+                    serviceRes.IsSuccess = false;
+                    serviceRes.ReturnCode = "400";
+                    serviceRes.ReturnMsg = "No item in bag";
+                }
+            }
+            catch (Exception ex)
+            {
+                LogManager.WriteLog(ex);
+            }
+            return serviceRes;
         }
     }
 }
