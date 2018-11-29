@@ -73,29 +73,56 @@ namespace Repository
             return serviceRes;
         }
 
-        public ServiceRes OrderConfirmation(OrderConfirmation[] orderConfirmation)
+        public ServiceRes OrderConfirmation(Order orderConfirmation)
         {
             ServiceRes serviceRes = new ServiceRes();
             try
             {
                 if (orderConfirmation != null)
                 {
-                    string OrderNumber = $"DO{DateTime.Now.ToString("DDMMYYYYHHmmss")}";
-                    string PaymentMode = "COD";
-                    foreach (var item in orderConfirmation)
+                    string OrderNumber = $"DO{DateTime.Now.ToString("ddMMyyyyHHmmss")}";
+                    foreach (var items in orderConfirmation.Request)
                     {
+                        SqlParameter[] sqlParameter = new SqlParameter[6];
+                        sqlParameter[0] = new SqlParameter { ParameterName = "@Order_Number", Value = OrderNumber };
+                        sqlParameter[1] = new SqlParameter { ParameterName = "@Order_Date", Value = DateTime.Now };
+                        sqlParameter[2] = new SqlParameter { ParameterName = "@MemberId", Value = items.UserId };
+                        sqlParameter[3] = new SqlParameter { ParameterName = "@Total_Amount", Value = items.Amount };
+                        sqlParameter[4] = new SqlParameter { ParameterName = "@Delivery_TimeSlot_Id", Value = items.DeliveryTimeSlotId };
+                        sqlParameter[5] = new SqlParameter { ParameterName = "@Flag", Value = "OM" };
 
+                        var dataTable= SqlHelper.GetTableFromSP("USP_OrderConfirmation", sqlParameter);
+                        if(dataTable.Rows.Count > 0)
+                        {
+                            var OrderId = dataTable.Rows[0][0];
+                            SqlParameter[] sqlParameters = new SqlParameter[6];
+                            sqlParameters[0] = new SqlParameter { ParameterName = "@Order_Id", Value = OrderId };
+                            sqlParameters[1] = new SqlParameter { ParameterName = "@Product_Id", Value =items.ProductId };
+                            sqlParameters[2] = new SqlParameter { ParameterName = "@Quantity", Value = items.Quantity };
+                            sqlParameters[3] = new SqlParameter { ParameterName = "@MemberId", Value = items.UserId };
+                            sqlParameters[4] = new SqlParameter { ParameterName = "@Amount", Value = items.Amount };
+                            sqlParameters[5] = new SqlParameter { ParameterName = "@Payment_Mode", Value = "COD" };
+                            sqlParameters[5] = new SqlParameter { ParameterName = "@Flag", Value = "OD" };
+                            var dataTable1 = SqlHelper.GetTableFromSP("USP_OrderConfirmation", sqlParameters);
+                            if (dataTable.Rows.Count > 0)
+                            {
+                                if (Convert.ToString(dataTable.Rows[0][0])=="0")
+                                {
+                                    serviceRes.IsSuccess = false;
+                                    serviceRes.ReturnCode = "400";
+                                    serviceRes.ReturnMsg = "Failed";
+                                }
+                                else
+                                {
+                                    serviceRes.IsSuccess = true;
+                                    serviceRes.ReturnCode = "200";
+                                    serviceRes.ReturnMsg = "Success";
+                                }
+                            }
+                        } 
                     }
-                    serviceRes.IsSuccess = true;
-                    serviceRes.ReturnCode = "200";
-                    serviceRes.ReturnMsg = "Success";
                 }
-                else
-                {
-                    serviceRes.IsSuccess = false;
-                    serviceRes.ReturnCode = "400";
-                    serviceRes.ReturnMsg = "Failed";
-                }
+                
             }
             catch(Exception ex)
             {

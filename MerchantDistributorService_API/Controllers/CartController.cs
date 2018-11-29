@@ -22,11 +22,7 @@ namespace MerchantDistributorService_API.Controllers
         {
             return Ok(_cart.AddToCart(request));
         }
-        [HttpPost]
-        public IHttpActionResult OrderConfirmation(List<OrderConfirmation> request)
-        {
-            return Ok("");
-        }
+
         [HttpPost]
         public IHttpActionResult DeliveryTimeSlot()
         {
@@ -44,6 +40,10 @@ namespace MerchantDistributorService_API.Controllers
             return Ok(_cart.DeleteItemfromCart(request));
         }
 
-
+        [HttpPost]
+        public IHttpActionResult OrderConfirmation(Order request)
+        {
+            return Ok(_cart.OrderConfirmation(request));
+        }
     }
 }

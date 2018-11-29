@@ -7,7 +7,7 @@ namespace Interface
     {
         ServiceRes AddToCart(Cart cart);
         ServiceRes DeleteItemfromCart(Cart cart);
-        ServiceRes OrderConfirmation(OrderConfirmation[] orderConfirmation);
+        ServiceRes OrderConfirmation(Order orders);
         ServiceRes ViewCartItem(Cart cart);
         ServiceRes DeliveryTimeSlot();
     }

@@ -27,3 +27,9 @@ E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessObjects\obj\Debug\Business
 E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessObjects\obj\Debug\BusinessObjects.csproj.CoreCompileInputs.cache
 E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessObjects\obj\Debug\BusinessObjects.dll
 E:\Github\webapi\MerchantDistributor_API\AAAA\BusinessObjects\obj\Debug\BusinessObjects.pdb
+C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessObjects\bin\Debug\BusinessObjects.dll
+C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessObjects\bin\Debug\BusinessObjects.pdb
+C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessObjects\obj\Debug\BusinessObjects.csprojAssemblyReference.cache
+C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessObjects\obj\Debug\BusinessObjects.csproj.CoreCompileInputs.cache
+C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessObjects\obj\Debug\BusinessObjects.dll
+C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessObjects\obj\Debug\BusinessObjects.pdb

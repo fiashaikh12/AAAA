@@ -19,24 +19,28 @@
             })
 
             $('.orderConfir').on('click', function () {
-                var url = "http://localhost:2334/api/cart/OrderConfirmation";
-                var request = [];
-                request.push({ OrderNumber: 'ORD12345', PaymentMode: 'Firoz' });
-                var result;
+                var request = [
+                    { Amount: 1200, UserId: 2, ProductId: 23, Quantity: 5, DeliveryTimeSlotId:1},
+                    { Amount: 2500, UserId: 2, ProductId: 24, Quantity: 3, DeliveryTimeSlotId: 1},
+                    { Amount: 3000, UserId: 2, ProductId: 25, Quantity: 2, DeliveryTimeSlotId: 1}
+                ];
+
+                request = JSON.stringify({ 'request': request });
+
                 $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: { request: request},
-                    async: false,
-                    success: function (response) {
-                        console.log(response)
-                        result = response;
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    type: 'POST',
+                    async: true,
+                    url: '/api/cart/OrderConfirmation',
+                    data: request,
+                    success: function () {
+                        $('#result').html('"PassThings()" successfully called.');
                     },
-                    error: function (err) {
-                        console.log(err)
+                    failure: function (response) {
+                        $('#result').html(response);
                     }
-                });
-                console.log(result);
+                }); 
             })
         });
 
