@@ -328,3 +328,12 @@ C:\Users\FIROZ\Desktop\New folder\A\AAAA\MerchantDistributorService_API\obj\Rele
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\MerchantDistributorService_API\obj\Release\MerchantDistributorService_API.csproj.CopyComplete
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\MerchantDistributorService_API\obj\Release\MerchantDistributorService_API.dll
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\MerchantDistributorService_API\obj\Release\MerchantDistributorService_API.pdb
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\MerchantDistributorService_API\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\MerchantDistributorService_API\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\MerchantDistributorService_API\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\MerchantDistributorService_API\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\MerchantDistributorService_API\bin\roslyn\System.Net.Http.dll
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\MerchantDistributorService_API\bin\roslyn\System.Net.Sockets.dll
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\MerchantDistributorService_API\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\MerchantDistributorService_API\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\MerchantDistributorService_API\bin\Newtonsoft.Json.pdb

@@ -76,3 +76,4 @@ C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\obj\Release\Business
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\obj\Release\BusinessLogicLayer.csproj.CopyComplete
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\obj\Release\BusinessLogicLayer.dll
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\obj\Release\BusinessLogicLayer.pdb
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\bin\Release\Newtonsoft.Json.pdb

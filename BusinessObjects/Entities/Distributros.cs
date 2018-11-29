@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Distributros
+    public class Distributor_User
+    {
+        public int UserId { get; set; }
+        public DateTime FilterDate { get; set; }
+    }
+    public class Distributors
     {
         public int CategoryId { get; set; }
         public int SubCategoryId { get; set; }
@@ -39,5 +44,10 @@ namespace Entities
         public int SubCategoryId { get; set; }
         public string Building_Name { get; set; }
         public string Locality { get; set; }
+    }
+    public class DistributorSalesReport
+    {
+        public DateTime SalesDate { get; set; }
+        public int SalesCount { get; set; }
     }
 }
