@@ -51,7 +51,7 @@ namespace Repository
                 SqlParameter[] sqlParameters = new SqlParameter[3];
                 sqlParameters[0] = new SqlParameter { ParameterName = "@Member_Id", Value = cart.UserId };
                 sqlParameters[1] = new SqlParameter { ParameterName = "@Product_Id", Value = cart.ProductId };
-                sqlParameters[2] = new SqlParameter { ParameterName = "@Flag", Value = "D" };
+                sqlParameters[1] = new SqlParameter { ParameterName = "@Flag", Value = "D" };
                 int ret = SqlHelper.ExecuteNonQuery("Usp_Cart", sqlParameters);
                 if (ret > 0)
                 {
@@ -75,7 +75,7 @@ namespace Repository
 
         public ServiceRes OrderConfirmation(Order orderConfirmation)
         {
-            ServiceRes serviceRes = new ServiceRes();
+            ServiceRes<string> serviceRes = new ServiceRes<string>();
             try
             {
                 if (orderConfirmation != null)
@@ -83,43 +83,40 @@ namespace Repository
                     string OrderNumber = $"DO{DateTime.Now.ToString("ddMMyyyyHHmmss")}";
                     foreach (var items in orderConfirmation.Request)
                     {
-                        SqlParameter[] sqlParameter = new SqlParameter[6];
+                        SqlParameter[] sqlParameter = new SqlParameter[8];
                         sqlParameter[0] = new SqlParameter { ParameterName = "@Order_Number", Value = OrderNumber };
                         sqlParameter[1] = new SqlParameter { ParameterName = "@Order_Date", Value = DateTime.Now };
                         sqlParameter[2] = new SqlParameter { ParameterName = "@MemberId", Value = items.UserId };
                         sqlParameter[3] = new SqlParameter { ParameterName = "@Total_Amount", Value = items.Amount };
                         sqlParameter[4] = new SqlParameter { ParameterName = "@Delivery_TimeSlot_Id", Value = items.DeliveryTimeSlotId };
-                        sqlParameter[5] = new SqlParameter { ParameterName = "@Flag", Value = "OM" };
+                        sqlParameter[5] = new SqlParameter { ParameterName = "@Product_Id", Value = items.ProductId };
+                        sqlParameter[6] = new SqlParameter { ParameterName = "@Quantity", Value = items.Quantity };
+                        sqlParameter[7] = new SqlParameter { ParameterName = "@Payment_Mode", Value = "COD" };
 
-                        var dataTable= SqlHelper.GetTableFromSP("USP_OrderConfirmation", sqlParameter);
-                        if(dataTable.Rows.Count > 0)
-                        {
-                            var OrderId = dataTable.Rows[0][0];
-                            SqlParameter[] sqlParameters = new SqlParameter[6];
-                            sqlParameters[0] = new SqlParameter { ParameterName = "@Order_Id", Value = OrderId };
-                            sqlParameters[1] = new SqlParameter { ParameterName = "@Product_Id", Value =items.ProductId };
-                            sqlParameters[2] = new SqlParameter { ParameterName = "@Quantity", Value = items.Quantity };
-                            sqlParameters[3] = new SqlParameter { ParameterName = "@MemberId", Value = items.UserId };
-                            sqlParameters[4] = new SqlParameter { ParameterName = "@Amount", Value = items.Amount };
-                            sqlParameters[5] = new SqlParameter { ParameterName = "@Payment_Mode", Value = "COD" };
-                            sqlParameters[5] = new SqlParameter { ParameterName = "@Flag", Value = "OD" };
-                            var dataTable1 = SqlHelper.GetTableFromSP("USP_OrderConfirmation", sqlParameters);
-                            if (dataTable.Rows.Count > 0)
-                            {
-                                if (Convert.ToInt32(dataTable.Rows[0][0]) > 0)
-                                {
-                                    serviceRes.IsSuccess = true;
-                                    serviceRes.ReturnCode = "200";
-                                    serviceRes.ReturnMsg = "Success";
-                                }
-                                else
-                                {
-                                    serviceRes.IsSuccess = false;
-                                    serviceRes.ReturnCode = "200";
-                                    serviceRes.ReturnMsg = "Failed";
-                                }
+                        var dataTable= SqlHelper.GetTableFromSP("USP_ORDER_CONFIRM", sqlParameter);
+                        if (dataTable.Rows.Count > 0) {
+                            var status = Convert.ToString(dataTable.Rows[0][0]);
+                            if (!String.IsNullOrEmpty(status)) {
+                                serviceRes.Data = status;
+                                serviceRes.IsSuccess = false;
+                                serviceRes.ReturnCode = "420";
+                                serviceRes.ReturnMsg = "Quantity not available for this product";
                             }
-                        } 
+                            else if(status=="1")
+                            {
+                                serviceRes.Data = "";
+                                serviceRes.IsSuccess = true;
+                                serviceRes.ReturnCode = "200";
+                                serviceRes.ReturnMsg = "Success";
+                            }
+                            else
+                            {
+                                serviceRes.Data = "";
+                                serviceRes.IsSuccess = false;
+                                serviceRes.ReturnCode = "400";
+                                serviceRes.ReturnMsg = "Failed";
+                            }
+                        }                         
                     }
                 }
                 

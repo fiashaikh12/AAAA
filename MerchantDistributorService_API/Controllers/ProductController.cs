@@ -37,5 +37,11 @@ namespace MerchantDistributorService_API.Controllers
         {
             return Ok(this._productRepository.GetSubCategoryMaster(request.CategoryId));
         }
+
+        [HttpPost]
+        public IHttpActionResult OrderSalesReport(Distributor_User request)
+        {
+            return Ok(this._productRepository.OrderSalesReport(request));
+        }
     }
 }

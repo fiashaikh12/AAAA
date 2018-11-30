@@ -20,9 +20,9 @@
 
             $('.orderConfir').on('click', function () {
                 var request = [
-                    { Amount: 1200, UserId: 2, ProductId: 23, Quantity: 5, DeliveryTimeSlotId:1},
-                    { Amount: 2500, UserId: 2, ProductId: 24, Quantity: 3, DeliveryTimeSlotId: 1},
-                    { Amount: 3000, UserId: 2, ProductId: 25, Quantity: 2, DeliveryTimeSlotId: 1}
+                    { Amount: 1200, UserId: 64, ProductId: 23, Quantity: 5, DeliveryTimeSlotId: 1},
+                    { Amount: 2500, UserId: 64, ProductId: 24, Quantity: 3, DeliveryTimeSlotId: 2},
+                    { Amount: 3000, UserId: 64, ProductId: 25, Quantity: 2, DeliveryTimeSlotId: 2}
                 ];
 
                 request = JSON.stringify({ 'request': request });
@@ -32,7 +32,7 @@
                     dataType: 'json',
                     type: 'POST',
                     async: true,
-                    url: '/api/cart/OrderConfirmation',
+                    url: 'http://localhost:2334/api/cart/OrderConfirmation',
                     data: request,
                     success: function () {
                         $('#result').html('"PassThings()" successfully called.');

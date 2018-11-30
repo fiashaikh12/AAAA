@@ -100,7 +100,13 @@ namespace Repository
 
         public ServiceRes SalesReport()
         {
-            throw new NotImplementedException();
+            ServiceRes serviceRes = new ServiceRes();
+            try { }
+            catch(Exception ex)
+            {
+                LogManager.WriteLog(ex);
+            }
+            return serviceRes;
         }
 
         public ServiceRes UpdateProduct(ProductDetails objProduct)
@@ -167,6 +173,55 @@ namespace Repository
         }
 
         public ServiceRes GetProductDetailById()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ServiceRes GetAllRecentOrders()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ServiceRes OrderSalesReport(Distributor_User distributor_User)
+        {
+            ServiceRes<List<DistributorSalesReport>> serviceRes = new ServiceRes<List<DistributorSalesReport>>();
+            try {
+                SqlParameter[] sqlParameters = new SqlParameter[1];
+                sqlParameters[0] = new SqlParameter { ParameterName = "@MemberId", Value = distributor_User.UserId };
+                sqlParameters[1] = new SqlParameter { ParameterName = "@Date", Value = distributor_User.FilterDate };
+                var dataTable = SqlHelper.GetTableFromSP("USP_DistributorSalesReport", sqlParameters);
+                if (dataTable.Rows.Count > 0)
+                {
+                    serviceRes.Data = dataTable.AsEnumerable().Select(x =>
+                          new DistributorSalesReport
+                          {
+                              SalesCount = x.Field<int>("Quantity"),
+                              SalesDate = x.Field<DateTime>("Orderdate")
+                          }).ToList();
+                    serviceRes.IsSuccess = true;
+                    serviceRes.ReturnCode = "200";
+                    serviceRes.ReturnMsg = "Success";
+                }
+                else
+                {
+                    serviceRes.IsSuccess = false;
+                    serviceRes.ReturnCode = "400";
+                    serviceRes.ReturnMsg = "Failed";
+                }
+            }
+            catch(Exception ex)
+            {
+                LogManager.WriteLog(ex);
+            }
+            return serviceRes;
+        }
+
+        public ServiceRes DeliveredOrderReport()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ServiceRes RecentOrderDetail(Distributor_User distributor_User)
         {
             throw new NotImplementedException();
         }

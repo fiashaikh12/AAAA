@@ -76,30 +76,4 @@ C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\obj\Release\Business
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\obj\Release\BusinessLogicLayer.csproj.CopyComplete
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\obj\Release\BusinessLogicLayer.dll
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\obj\Release\BusinessLogicLayer.pdb
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\BusinessLogicLayer.dll.config
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\BusinessLogicLayer.dll
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\BusinessLogicLayer.pdb
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\BusinessObjects.dll
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\DataAccessLayer.dll
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\Microsoft.IdentityModel.Logging.dll
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\Microsoft.IdentityModel.Tokens.dll
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\Newtonsoft.Json.dll
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\BusinessObjects.pdb
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\DataAccessLayer.pdb
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\Microsoft.IdentityModel.JsonWebTokens.pdb
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\Microsoft.IdentityModel.JsonWebTokens.xml
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\Microsoft.IdentityModel.Logging.pdb
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\Microsoft.IdentityModel.Logging.xml
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\Microsoft.IdentityModel.Tokens.pdb
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\Microsoft.IdentityModel.Tokens.xml
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\Newtonsoft.Json.pdb
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\Newtonsoft.Json.xml
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\System.IdentityModel.Tokens.Jwt.pdb
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Release\System.IdentityModel.Tokens.Jwt.xml
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\obj\Release\BusinessLogicLayer.csprojAssemblyReference.cache
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\obj\Release\BusinessLogicLayer.csproj.CoreCompileInputs.cache
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\obj\Release\BusinessLogicLayer.csproj.CopyComplete
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\obj\Release\BusinessLogicLayer.dll
-C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\obj\Release\BusinessLogicLayer.pdb
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\bin\Release\Newtonsoft.Json.pdb

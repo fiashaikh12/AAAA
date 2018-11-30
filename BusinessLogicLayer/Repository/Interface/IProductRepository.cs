@@ -5,7 +5,8 @@ namespace Repository
 {
     public interface IProductRepository
     {
-        ServiceRes SalesReport();
+        ServiceRes OrderSalesReport(Distributor_User distributor_User);
+        ServiceRes DeliveredOrderReport();
         ServiceRes AddProduct(ProductDetails objProduct);
         ServiceRes DeleteProduct(int productId);
         ServiceRes UpdateProduct(ProductDetails objProduct);
@@ -13,5 +14,7 @@ namespace Repository
         ServiceRes GetProductDetailById();
         ServiceRes GetCategoryMaster();
         ServiceRes GetSubCategoryMaster(int categoryId);
+        ServiceRes GetAllRecentOrders();
+        ServiceRes RecentOrderDetail(Distributor_User distributor_User);
     }
 }

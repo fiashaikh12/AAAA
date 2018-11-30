@@ -177,3 +177,4 @@ C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\obj\Debug\BusinessLo
 C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
 C:\Users\firoz_shaikh\source\repos\AAAA2\BusinessLogicLayer\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\FIROZ\Desktop\New folder\A\AAAA\BusinessLogicLayer\bin\Debug\Newtonsoft.Json.pdb
