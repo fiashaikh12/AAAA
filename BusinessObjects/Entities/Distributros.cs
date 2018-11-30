@@ -54,5 +54,12 @@ namespace Entities
     {
         public int OrderCount { get; set; }
         public string Status { get; set; }
+        public int UserId { get; set; }
+    }
+
+    public class Report
+    {
+        public List<DistributorSalesReport> distributorSales { get; set; }
+        public List<OrderStatus> orders { get; set; }
     }
 }

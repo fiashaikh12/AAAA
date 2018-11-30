@@ -77,7 +77,7 @@ namespace Repository
                 var dt = SqlHelper.GetTableFromSP("Usp_Products", sqlParameters);
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    
+
                     serviceRes.Data = productDetails;
                     serviceRes.IsSuccess = true;
                     serviceRes.ReturnCode = "200";
@@ -175,7 +175,7 @@ namespace Repository
         {
             ServiceRes<List<DistributorSalesReport>> serviceRes = new ServiceRes<List<DistributorSalesReport>>();
             try {
-                SqlParameter[] sqlParameters = new SqlParameter[2];
+                SqlParameter[] sqlParameters = new SqlParameter[3];
                 sqlParameters[0] = new SqlParameter { ParameterName = "@MemberId", Value = distributor_User.UserId };
                 sqlParameters[1] = new SqlParameter { ParameterName = "@Date", Value = distributor_User.FilterDate };
                 sqlParameters[2] = new SqlParameter { ParameterName = "@Flag", Value = "P" };
@@ -211,7 +211,7 @@ namespace Repository
             ServiceRes<List<OrderStatus>> serviceRes = new ServiceRes<List<OrderStatus>>();
             try
             {
-                SqlParameter[] sqlParameter = new SqlParameter[1];
+                SqlParameter[] sqlParameter = new SqlParameter[2];
                 sqlParameter[0] = new SqlParameter { ParameterName = "@MemberId", Value = distributor_User.UserId };
                 sqlParameter[1] = new SqlParameter { ParameterName = "@Flag", Value = "D" };
                 var dataTable = SqlHelper.GetTableFromSP("USP_DistributorSalesReport", sqlParameter);
@@ -220,7 +220,8 @@ namespace Repository
                     serviceRes.Data = dataTable.AsEnumerable().Select(x => new OrderStatus
                     {
                         OrderCount = x.Field<int>("ORDER_COUNT"),
-                        Status = x.Field<string>("Order_Status")
+                        Status = x.Field<string>("Order_Status"),
+                        UserId=x.Field<int>("MemberId")
                     }).ToList();
                     serviceRes.IsSuccess = true;
                     serviceRes.ReturnCode = "200";
@@ -255,8 +256,9 @@ namespace Repository
                     serviceRes.Data = dataTable.AsEnumerable().Select(x =>new OrderStatus
                 {
                     OrderCount = x.Field<int>("ORDER_COUNT"),
-                    Status = x.Field<string>("Order_Status")
-                }).ToList();
+                    Status = x.Field<string>("Order_Status"),
+                    UserId=x.Field<int>("MemberId")
+                    }).ToList();
                     serviceRes.IsSuccess = true;
                     serviceRes.ReturnCode = "200";
                     serviceRes.ReturnMsg = "Success";
