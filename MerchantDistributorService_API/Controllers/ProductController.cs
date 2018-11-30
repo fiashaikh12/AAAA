@@ -39,9 +39,21 @@ namespace MerchantDistributorService_API.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult OrderSalesReport(Distributor_User request)
+        public IHttpActionResult SalePerformance(Distributor_User request)
         {
-            return Ok(this._productRepository.OrderSalesReport(request));
+            return Ok(this._productRepository.Distributor_SalesPerformance(request));
+        }
+
+        [HttpPost]
+        public IHttpActionResult OrderReport(Distributor_User request)
+        {
+            return Ok(this._productRepository.Distributor_OrdersReport(request));
+        }
+
+        [HttpPost]
+        public IHttpActionResult DeliveredOrderReport(Distributor_User request)
+        {
+            return Ok(this._productRepository.Distributor_DeliveredReport(request));
         }
     }
 }

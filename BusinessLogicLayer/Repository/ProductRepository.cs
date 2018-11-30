@@ -98,17 +98,6 @@ namespace Repository
             return serviceRes;
         }
 
-        public ServiceRes SalesReport()
-        {
-            ServiceRes serviceRes = new ServiceRes();
-            try { }
-            catch(Exception ex)
-            {
-                LogManager.WriteLog(ex);
-            }
-            return serviceRes;
-        }
-
         public ServiceRes UpdateProduct(ProductDetails objProduct)
         {
             throw new NotImplementedException();
@@ -182,13 +171,14 @@ namespace Repository
             throw new NotImplementedException();
         }
 
-        public ServiceRes OrderSalesReport(Distributor_User distributor_User)
+        public ServiceRes Distributor_SalesPerformance(Distributor_User distributor_User)
         {
             ServiceRes<List<DistributorSalesReport>> serviceRes = new ServiceRes<List<DistributorSalesReport>>();
             try {
-                SqlParameter[] sqlParameters = new SqlParameter[1];
+                SqlParameter[] sqlParameters = new SqlParameter[2];
                 sqlParameters[0] = new SqlParameter { ParameterName = "@MemberId", Value = distributor_User.UserId };
                 sqlParameters[1] = new SqlParameter { ParameterName = "@Date", Value = distributor_User.FilterDate };
+                sqlParameters[2] = new SqlParameter { ParameterName = "@Flag", Value = "P" };
                 var dataTable = SqlHelper.GetTableFromSP("USP_DistributorSalesReport", sqlParameters);
                 if (dataTable.Rows.Count > 0)
                 {
@@ -216,9 +206,74 @@ namespace Repository
             return serviceRes;
         }
 
-        public ServiceRes DeliveredOrderReport()
+        public ServiceRes Distributor_DeliveredReport(Distributor_User distributor_User)
         {
-            throw new NotImplementedException();
+            ServiceRes<List<OrderStatus>> serviceRes = new ServiceRes<List<OrderStatus>>();
+            try
+            {
+                SqlParameter[] sqlParameter = new SqlParameter[1];
+                sqlParameter[0] = new SqlParameter { ParameterName = "@MemberId", Value = distributor_User.UserId };
+                sqlParameter[1] = new SqlParameter { ParameterName = "@Flag", Value = "D" };
+                var dataTable = SqlHelper.GetTableFromSP("USP_DistributorSalesReport", sqlParameter);
+                if (dataTable.Rows.Count > 0)
+                {
+                    serviceRes.Data = dataTable.AsEnumerable().Select(x => new OrderStatus
+                    {
+                        OrderCount = x.Field<int>("ORDER_COUNT"),
+                        Status = x.Field<string>("Order_Status")
+                    }).ToList();
+                    serviceRes.IsSuccess = true;
+                    serviceRes.ReturnCode = "200";
+                    serviceRes.ReturnMsg = "Success";
+                }
+                else
+                {
+                    serviceRes.IsSuccess = false;
+                    serviceRes.ReturnCode = "400";
+                    serviceRes.ReturnMsg = "Failed";
+                }
+
+;
+            }
+            catch (Exception ex)
+            {
+                LogManager.WriteLog(ex);
+            }
+            return serviceRes;
+        }
+
+        public ServiceRes Distributor_OrdersReport(Distributor_User distributor_User)
+        {
+            ServiceRes<List<OrderStatus>> serviceRes = new ServiceRes<List<OrderStatus>>();
+            try {
+                SqlParameter[] sqlParameter = new SqlParameter[2];
+                sqlParameter[0] = new SqlParameter { ParameterName = "@MemberId", Value = distributor_User.UserId };
+                sqlParameter[1] = new SqlParameter { ParameterName = "@Flag", Value = "O" };
+                var dataTable = SqlHelper.GetTableFromSP("USP_DistributorSalesReport", sqlParameter);
+                if (dataTable.Rows.Count > 0)
+                {
+                    serviceRes.Data = dataTable.AsEnumerable().Select(x =>new OrderStatus
+                {
+                    OrderCount = x.Field<int>("ORDER_COUNT"),
+                    Status = x.Field<string>("Order_Status")
+                }).ToList();
+                    serviceRes.IsSuccess = true;
+                    serviceRes.ReturnCode = "200";
+                    serviceRes.ReturnMsg = "Success";
+                }
+                else
+                {
+                    serviceRes.IsSuccess = false;
+                    serviceRes.ReturnCode = "400";
+                    serviceRes.ReturnMsg = "Failed";
+                }
+
+;            }
+            catch(Exception ex)
+            {
+                LogManager.WriteLog(ex);
+            }
+            return serviceRes;
         }
 
         public ServiceRes RecentOrderDetail(Distributor_User distributor_User)

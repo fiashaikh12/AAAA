@@ -50,4 +50,9 @@ namespace Entities
         public DateTime SalesDate { get; set; }
         public int SalesCount { get; set; }
     }
+    public class OrderStatus
+    {
+        public int OrderCount { get; set; }
+        public string Status { get; set; }
+    }
 }

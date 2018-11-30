@@ -20,9 +20,10 @@
 
             $('.orderConfir').on('click', function () {
                 var request = [
-                    { Amount: 1200, UserId: 64, ProductId: 23, Quantity: 5, DeliveryTimeSlotId: 1},
-                    { Amount: 2500, UserId: 64, ProductId: 24, Quantity: 3, DeliveryTimeSlotId: 2},
-                    { Amount: 3000, UserId: 64, ProductId: 25, Quantity: 2, DeliveryTimeSlotId: 2}
+                    { Amount: 12200, DistributorId: 4, ProductId: 30, Quantity: 15, DeliveryTimeSlotId: 1, RetailerId:64},
+                    { Amount: 1200, DistributorId: 4, ProductId: 23, Quantity: 5, DeliveryTimeSlotId: 1, RetailerId: 64},
+                    { Amount: 2500, DistributorId: 14, ProductId: 24, Quantity: 3, DeliveryTimeSlotId: 2, RetailerId: 64},
+                    { Amount: 3000, DistributorId: 44, ProductId: 25, Quantity: 2, DeliveryTimeSlotId: 2, RetailerId: 64}
                 ];
 
                 request = JSON.stringify({ 'request': request });
