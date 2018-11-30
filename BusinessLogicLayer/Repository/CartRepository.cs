@@ -51,7 +51,7 @@ namespace Repository
                 SqlParameter[] sqlParameters = new SqlParameter[3];
                 sqlParameters[0] = new SqlParameter { ParameterName = "@Member_Id", Value = cart.UserId };
                 sqlParameters[1] = new SqlParameter { ParameterName = "@Product_Id", Value = cart.ProductId };
-                sqlParameters[1] = new SqlParameter { ParameterName = "@Flag", Value = "D" };
+                sqlParameters[2] = new SqlParameter { ParameterName = "@Flag", Value = "D" };
                 int ret = SqlHelper.ExecuteNonQuery("Usp_Cart", sqlParameters);
                 if (ret > 0)
                 {
@@ -106,17 +106,17 @@ namespace Repository
                             var dataTable1 = SqlHelper.GetTableFromSP("USP_OrderConfirmation", sqlParameters);
                             if (dataTable.Rows.Count > 0)
                             {
-                                if (Convert.ToString(dataTable.Rows[0][0])=="0")
-                                {
-                                    serviceRes.IsSuccess = false;
-                                    serviceRes.ReturnCode = "400";
-                                    serviceRes.ReturnMsg = "Failed";
-                                }
-                                else
+                                if (Convert.ToInt32(dataTable.Rows[0][0]) > 0)
                                 {
                                     serviceRes.IsSuccess = true;
                                     serviceRes.ReturnCode = "200";
                                     serviceRes.ReturnMsg = "Success";
+                                }
+                                else
+                                {
+                                    serviceRes.IsSuccess = false;
+                                    serviceRes.ReturnCode = "200";
+                                    serviceRes.ReturnMsg = "Failed";
                                 }
                             }
                         } 

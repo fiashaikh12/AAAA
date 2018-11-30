@@ -16,3 +16,9 @@ C:\Users\FIROZ\Desktop\New folder\A\AAAA\DataAccessLayer\obj\Release\DataAccessL
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\DataAccessLayer\obj\Release\DataAccessLayer.dll
 C:\Users\FIROZ\Desktop\New folder\A\AAAA\DataAccessLayer\obj\Release\DataAccessLayer.pdb
+C:\Users\firoz_shaikh\source\repos\AAAA2\DataAccessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\firoz_shaikh\source\repos\AAAA2\DataAccessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\firoz_shaikh\source\repos\AAAA2\DataAccessLayer\obj\Release\DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\firoz_shaikh\source\repos\AAAA2\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\firoz_shaikh\source\repos\AAAA2\DataAccessLayer\obj\Release\DataAccessLayer.dll
+C:\Users\firoz_shaikh\source\repos\AAAA2\DataAccessLayer\obj\Release\DataAccessLayer.pdb
