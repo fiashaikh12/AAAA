@@ -15,5 +15,7 @@
         public bool  IsPackaging { get; set; }
         public int  CategoryId { get; set; }
         public int SubCategoryId { get; set; }
+        public string Category { get; set; }
+        public string SubCategory { get; set; }
     }
 }

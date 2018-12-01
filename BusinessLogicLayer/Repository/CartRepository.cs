@@ -91,7 +91,7 @@ namespace Repository
                         if (userId != items.DistributorId)
                         {
                             userId = items.DistributorId;
-                            string OrderNumber = $"DO{DateTime.Now.ToString("ddMMyyyyHHmmss")}";
+                            string OrderNumber = $"MD{DateTime.Now.ToString("ddMMyyyyHHmmss")}";
                             SqlParameter[] sqlParameter = new SqlParameter[6];
                             sqlParameter[0] = new SqlParameter { ParameterName = "@Order_Number", Value = OrderNumber };
                             sqlParameter[1] = new SqlParameter { ParameterName = "@Order_Date", Value = DateTime.Now };

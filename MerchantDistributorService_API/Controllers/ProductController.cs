@@ -16,11 +16,13 @@ namespace MerchantDistributorService_API.Controllers
         {
             this._productRepository = productRepository;
         }
+
         [HttpPost, DeflateCompression,Cache(TimeDuration =10)]
-        public IHttpActionResult GetProductList()
+        public IHttpActionResult GetProductList(Distributor_User request)
         {
-                    return Ok(_productRepository.GetAllProduct());
+                    return Ok(_productRepository.ViewProducts(request));
         }
+
         [HttpPost]
         public IHttpActionResult AddProduct(ProductDetails request)
         {
@@ -39,21 +41,28 @@ namespace MerchantDistributorService_API.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult SalePerformance(Distributor_User request)
+        public IHttpActionResult DistributorReport(Distributor_User request)
         {
-            return Ok(this._productRepository.Distributor_SalesPerformance(request));
+            return Ok(this._productRepository.Distributor_Report(request));
         }
 
         [HttpPost]
-        public IHttpActionResult OrderReport(Distributor_User request)
+        public IHttpActionResult GetAllRecentOrders(RecentReport request)
         {
-            return Ok(this._productRepository.Distributor_OrdersReport(request));
+            return Ok(this._productRepository.GetAllRecentOrders(request));
         }
 
         [HttpPost]
-        public IHttpActionResult DeliveredOrderReport(Distributor_User request)
+        public IHttpActionResult RecentOrdersById(RecentReport request)
         {
-            return Ok(this._productRepository.Distributor_DeliveredReport(request));
+            return Ok(this._productRepository.RecentOrderDetail(request));
         }
+
+        [HttpPost]
+        public IHttpActionResult Distributor_ConfirmOrder(RecentReport request)
+        {
+            return Ok(this._productRepository.Distributor_ConfirmOrder(request));
+        }
+
     }
 }
