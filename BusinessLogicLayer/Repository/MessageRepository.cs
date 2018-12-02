@@ -15,9 +15,9 @@ namespace Repository
             ServiceRes<List<Messages>> serviceRes = new ServiceRes<List<Messages>>();
             try
             {
-                SqlParameter[] sqlParameter = new SqlParameter[4];
+                SqlParameter[] sqlParameter = new SqlParameter[2];
                 sqlParameter[0] = new SqlParameter { ParameterName = "@senderId", Value = messages.SenderId };
-                sqlParameter[3] = new SqlParameter { ParameterName = "@flag", Value = "G" };
+                sqlParameter[1] = new SqlParameter { ParameterName = "@flag", Value = "G" };
                 var dataTable = SqlHelper.GetTableFromSP("Usp_MessageMaster", sqlParameter);
                 if (dataTable!=null || dataTable.Rows.Count >0)
                 {
@@ -25,7 +25,8 @@ namespace Repository
                         MessageContent=x.Field<string>("Msg_Description"),
                         RecieverId=x.Field<int>("Recipent_Id"),
                         SenderId=x.Field<int>("Sender_Id"),
-                        IsRead=x.Field<bool>("Read_Flag")
+                        IsRead=x.Field<bool>("Read_Flag"),
+                        MessageDate=x.Field<DateTime>("Created_On")
                     }).ToList();
                     serviceRes.IsSuccess = true;
                     serviceRes.ReturnCode = "200";

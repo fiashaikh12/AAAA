@@ -59,7 +59,7 @@ namespace MerchantDistributorService_API.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Distributor_ConfirmOrder(RecentReport request)
+        public IHttpActionResult Distributor_ConfirmOrder(ConfirmOrder request)
         {
             return Ok(this._productRepository.Distributor_ConfirmOrder(request));
         }

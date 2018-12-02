@@ -18,6 +18,6 @@ namespace Repository
         ServiceRes GetSubCategoryMaster(int categoryId);
         ServiceRes GetAllRecentOrders(RecentReport recentReport);
         ServiceRes RecentOrderDetail(RecentReport  recentReport);
-        ServiceRes Distributor_ConfirmOrder(RecentReport productDetails);
+        ServiceRes Distributor_ConfirmOrder(ConfirmOrder confirmOrder);
     }
 }

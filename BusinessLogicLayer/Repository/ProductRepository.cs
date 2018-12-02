@@ -187,7 +187,8 @@ namespace Repository
                         ProductId=x.Field<int>("Product_Id"),
                         MechantName=x.Field<string>("MerchantName"),
                         Locality=x.Field<string>("Locality"),
-                        PinCode=x.Field<string>("PinCode")
+                        PinCode=Convert.ToString(x.Field<int>("PinCode")),
+                        EmailAddress=x.Field<string>("Email")
                     }).ToList();
                     serviceRes.IsSuccess = true;
                     serviceRes.ReturnCode = "200";
@@ -215,10 +216,10 @@ namespace Repository
             ServiceRes<List<RecentReport>> serviceRes = new ServiceRes<List<RecentReport>>();
             try
             {
-                SqlParameter[] sqlParameters = new SqlParameter[2];
+                SqlParameter[] sqlParameters = new SqlParameter[3];
                 sqlParameters[0] = new SqlParameter { ParameterName = "@MemberId", Value = recentReport.UserId };
-                sqlParameters[0] = new SqlParameter { ParameterName = "@Order_Id", Value = recentReport.OrderId };
-                sqlParameters[1] = new SqlParameter { ParameterName = "@Flag", Value = "OP" };
+                sqlParameters[1] = new SqlParameter { ParameterName = "@Order_Id", Value = recentReport.OrderId };
+                sqlParameters[2] = new SqlParameter { ParameterName = "@Flag", Value = "OP" };
 
                 var dataTable = SqlHelper.GetTableFromSP("USP_DistributorOrder", sqlParameters);
                 if (dataTable.Rows.Count > 0)
@@ -290,36 +291,41 @@ namespace Repository
             return serviceRes;
         }
 
-        public ServiceRes Distributor_ConfirmOrder(RecentReport  recentReport)
+        public ServiceRes Distributor_ConfirmOrder(ConfirmOrder  confirmOrder)
         {
             ServiceRes serviceRes = new ServiceRes();
             try
             {
-                SqlParameter[] sqlParameter = new SqlParameter[5];
-                sqlParameter[0] = new SqlParameter { ParameterName = "@MemberId", Value = recentReport.UserId };
-                sqlParameter[1] = new SqlParameter { ParameterName = "@Order_Id", Value = recentReport.OrderId};
-                sqlParameter[2] = new SqlParameter { ParameterName = "@Product_Id", Value = recentReport.ProductId };
-                sqlParameter[3] = new SqlParameter { ParameterName = "@Order_Status", Value = "D" };
-                sqlParameter[4] = new SqlParameter { ParameterName = "@Flag", Value = "OS" };
-                var retValue = SqlHelper.ExecuteNonQuery("USP_DistributorOrder", sqlParameter);
-                if (retValue > 0)
+                if (confirmOrder.Request != null)
                 {
-                    EmailerRepository emailerRepository = EmailerRepository.GetInstance;
-                    if (emailerRepository.Send(recentReport.EmailAddress))
+                    int retValue = 0;
+                    foreach (var order in confirmOrder.Request)
                     {
-                        serviceRes.IsSuccess = true;
-                        serviceRes.ReturnCode = "200";
-                        serviceRes.ReturnMsg = "Success";
+                        SqlParameter[] sqlParameter = new SqlParameter[5];
+                        sqlParameter[0] = new SqlParameter { ParameterName = "@MemberId", Value = order.UserId };
+                        sqlParameter[1] = new SqlParameter { ParameterName = "@Order_Id", Value = order.OrderId };
+                        sqlParameter[2] = new SqlParameter { ParameterName = "@Product_Id", Value = order.ProductId };
+                        sqlParameter[3] = new SqlParameter { ParameterName = "@Order_Status", Value = "D" };
+                        sqlParameter[4] = new SqlParameter { ParameterName = "@Flag", Value = "OS" };
+                        retValue = SqlHelper.ExecuteNonQuery("USP_DistributorOrder", sqlParameter);
+                        if (retValue > 0)
+                        {
+                            EmailerRepository emailerRepository = EmailerRepository.GetInstance;
+                            if (emailerRepository.Send(order.EmailAddress))
+                            {
+                                serviceRes.IsSuccess = true;
+                                serviceRes.ReturnCode = "200";
+                                serviceRes.ReturnMsg = "Success";
+                            }
+                        }
+                        else
+                        {
+                            serviceRes.IsSuccess = false;
+                            serviceRes.ReturnCode = "400";
+                            serviceRes.ReturnMsg = "Failed";
+                        };
                     }
                 }
-                else
-                {
-                    serviceRes.IsSuccess = false;
-                    serviceRes.ReturnCode = "400";
-                    serviceRes.ReturnMsg = "Failed";
-                }
-
-;
             }
             catch (Exception ex)
             {

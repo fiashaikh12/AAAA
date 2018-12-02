@@ -73,4 +73,8 @@ namespace Entities
         public string  ProductName { get; set; }
         public decimal Price { get; set; }
     }
+    public class ConfirmOrder
+    {
+        public List<RecentReport> Request { get; set; }
+    }
 }

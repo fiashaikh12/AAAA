@@ -20,12 +20,10 @@
 
             $('.orderConfir').on('click', function () {
                 var request = [
-                    { Amount: 12200, DistributorId: 4, ProductId: 30, Quantity: 15, DeliveryTimeSlotId: 1, RetailerId:64},
-                    { Amount: 1200, DistributorId: 4, ProductId: 23, Quantity: 5, DeliveryTimeSlotId: 1, RetailerId: 64},
-                    { Amount: 2500, DistributorId: 14, ProductId: 24, Quantity: 3, DeliveryTimeSlotId: 2, RetailerId: 64},
-                    { Amount: 3000, DistributorId: 44, ProductId: 25, Quantity: 2, DeliveryTimeSlotId: 2, RetailerId: 64}
+                    { UserId: 64, OrderId: 1, ProductId: 14, EmailAddress: 'ronysourav@gmail.com' },
+                    { UserId: 64, OrderId: 2, ProductId: 14, EmailAddress: 'ronysourav@gmail.com' },
+                    { UserId: 64, OrderId: 3, ProductId: 14, EmailAddress: 'ronysourav@gmail.com' },
                 ];
-
                 request = JSON.stringify({ 'request': request });
 
                 $.ajax({
@@ -33,7 +31,7 @@
                     dataType: 'json',
                     type: 'POST',
                     async: true,
-                    url: 'http://localhost:2334/api/cart/OrderConfirmation',
+                    url: 'http://localhost:2334/api/product/Distributor_ConfirmOrder',
                     data: request,
                     success: function () {
                         //$('#result').html('"PassThings()" successfully called.');
