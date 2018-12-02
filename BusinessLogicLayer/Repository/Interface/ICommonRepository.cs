@@ -14,6 +14,6 @@ namespace Repository
         ServiceRes GetGenders();
         ServiceRes GetBusinessType();
         string Base64toImage(string base64string, string directory, string subdirectory,string fileName);
-        bool IsBase64Valid(string base64String);
+        bool RemoveFileFromDirectory(string directory, string subdirectory, string fileLocation);
     }
 }

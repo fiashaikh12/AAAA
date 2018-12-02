@@ -16,10 +16,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/29/2018 18:50:41</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>11/30/2018 20:50:57</publishTime>
+      <publishTime>12/01/2018 18:39:11</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>11/30/2018 20:50:57</publishTime>
+      <publishTime>12/01/2018 18:39:11</publishTime>
     </File>
     <File Include="bin/Autofac.dll">
       <publishTime>09/03/2018 09:29:48</publishTime>
@@ -31,34 +31,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/21/2018 18:25:22</publishTime>
     </File>
     <File Include="bin/BusinessLogicLayer.dll">
-      <publishTime>11/30/2018 20:50:38</publishTime>
+      <publishTime>12/01/2018 18:38:59</publishTime>
     </File>
     <File Include="bin/BusinessLogicLayer.dll.config">
       <publishTime>11/29/2018 18:50:39</publishTime>
     </File>
     <File Include="bin/BusinessLogicLayer.pdb">
-      <publishTime>11/30/2018 20:50:38</publishTime>
+      <publishTime>12/01/2018 18:38:59</publishTime>
     </File>
     <File Include="bin/BusinessObjects.dll">
-      <publishTime>11/30/2018 20:50:37</publishTime>
+      <publishTime>12/01/2018 18:38:58</publishTime>
     </File>
     <File Include="bin/BusinessObjects.pdb">
-      <publishTime>11/30/2018 20:50:37</publishTime>
+      <publishTime>12/01/2018 18:38:58</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>11/22/2018 19:53:30</publishTime>
+      <publishTime>12/01/2018 17:31:06</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>11/22/2018 19:53:30</publishTime>
+      <publishTime>12/01/2018 17:31:06</publishTime>
     </File>
     <File Include="bin/DotNetZip.dll">
       <publishTime>11/09/2018 14:37:48</publishTime>
     </File>
     <File Include="bin/MerchantDistributorService_API.dll">
-      <publishTime>11/30/2018 20:50:46</publishTime>
+      <publishTime>12/01/2018 18:39:05</publishTime>
     </File>
     <File Include="bin/MerchantDistributorService_API.pdb">
-      <publishTime>11/30/2018 20:50:46</publishTime>
+      <publishTime>12/01/2018 18:39:05</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>06/27/2017 12:59:34</publishTime>
@@ -331,7 +331,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/30/2018 19:20:48</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>11/30/2018 20:50:49</publishTime>
+      <publishTime>12/01/2018 18:39:06</publishTime>
     </File>
     <File Include="scripts/admin.js">
       <publishTime>11/03/2018 20:17:13</publishTime>

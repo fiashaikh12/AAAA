@@ -32,6 +32,7 @@ namespace AutoFactory
             builder.RegisterType<DashboardRepository>().As<IDashboard>().InstancePerRequest();
             builder.RegisterType<AdminRepository>().As<IAdmin>().InstancePerRequest();
             builder.RegisterType<CartRepository>().As<ICart>().InstancePerRequest();
+            builder.RegisterType<MessageRepository>().As<IMessage>().InstancePerRequest();
             container = builder.Build();
             return container;
         }
