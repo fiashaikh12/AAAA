@@ -201,6 +201,7 @@ namespace Repository
             ServiceRes serviceRes = new ServiceRes();
             try
             {
+                //string tempLocation = commonRepository.Base64toImage(objRegister.CompanyPhoto, "TempImages", "Temp", "Photos");
                 string fileLocation = commonRepository.Base64toImage(objRegister.CompanyPhoto, "Images", "CompanyPhoto","CompanyPhoto");
                 SqlParameter[] parameter = new SqlParameter[20];
                 parameter[0] = new SqlParameter { ParameterName = "@Mobile", Value = objRegister.MobileNumber };
@@ -233,6 +234,8 @@ namespace Repository
                 }
                 else if(Convert.ToInt32(returnValue) ==0)
                 {
+                    //commonRepository.RemoveFileFromDirectory("TempImages", "Temp", tempLocation);
+                    //commonRepository.Base64toImage(objRegister.CompanyPhoto, "Images", "CompanyPhoto", "CompanyPhoto");
                     serviceRes.IsSuccess = true;
                     serviceRes.ReturnCode = "200";
                     serviceRes.ReturnMsg = "User registered";

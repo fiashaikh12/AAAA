@@ -31,7 +31,8 @@ namespace Repository
                             Locality=x.Field<string>("Locality"),
                             PinCode=Convert.ToInt32(x.Field<int>("PinCode")),
                             State=x.Field<string>("State"),
-                            City=x.Field<string>("City")
+                            City=x.Field<string>("City"),
+                            UserId=x.Field<int>("Member_Id")
                         }).ToList();
                     serviceRes.Data = productCategories;
                     serviceRes.IsSuccess = true;

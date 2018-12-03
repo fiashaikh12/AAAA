@@ -10,6 +10,6 @@ namespace Interface
     public interface IEmailer
     {
         bool Send(string emailAddress,string password);
-        Task SendAsync(string emailAddress);
+        bool Send(string emailAddress);
     }
 }

@@ -61,9 +61,33 @@ namespace Repository
             return emailSend;
         }
 
-        public Task SendAsync(string emailAddress)
+        public bool Send(string emailAddress)
         {
-            throw new NotImplementedException();
+            bool emailSend = false;
+            try
+            {
+                if (!string.IsNullOrEmpty(emailAddress))
+                {
+                    MailMessage objMail = new MailMessage
+                    {
+                        From = _email,
+                        To = emailAddress,
+                        Subject = "Forgot password",
+                        BodyFormat = MailFormat.Html,
+                        Priority = MailPriority.High,
+                        Body = $"Your order is confirmed and soon will be delivered to your registered address. Thank You."
+                    };
+
+                    SmtpMail.SmtpServer = "relay-hosting.secureserver.net";
+                    SmtpMail.Send(objMail);
+                    emailSend = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogManager.WriteLog(ex);
+            }
+            return emailSend;
         }
     }
 }

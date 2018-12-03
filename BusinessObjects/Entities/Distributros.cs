@@ -9,7 +9,7 @@ namespace Entities
     public class Distributor_User
     {
         public int UserId { get; set; }
-        public DateTime FilterDate { get; set; }
+        public DateTime ? FilterDate { get; set; }
     }
     public class Distributors
     {
@@ -56,10 +56,25 @@ namespace Entities
         public string Status { get; set; }
         public int UserId { get; set; }
     }
-
-    public class Report
+    public class RecentReport
     {
-        public List<DistributorSalesReport> distributorSales { get; set; }
-        public List<OrderStatus> orders { get; set; }
+        public string EmailAddress{ get; set; }
+        public int OrderId { get; set; }
+        public string OrderNumber { get; set; }
+        public int UserId { get; set; }
+        public DateTime ? OrderDate { get; set; }
+        public int ProductId { get; set; }
+        public string MechantName { get; set; }
+        public string Locality { get; set; }
+        public string  PinCode { get; set; }
+        public int OrderQuantity { get; set; }
+        public int DeliveredQuantity { get; set; }
+        public DateTime? CreatedOn { get; set; }
+        public string  ProductName { get; set; }
+        public decimal Price { get; set; }
+    }
+    public class ConfirmOrder
+    {
+        public List<RecentReport> Request { get; set; }
     }
 }

@@ -145,12 +145,9 @@ namespace Repository
                 try
                 {
                     //bool exists = Directory.Exists(HostingEnvironment.MapPath("~/"+ directory));
-
                     if (!Directory.Exists(HostingEnvironment.MapPath("~/" + directory)))
                         Directory.CreateDirectory(HostingEnvironment.MapPath("~/"+ directory));
-
                     //exists = Directory.Exists(HostingEnvironment.MapPath("~/Images/" + subdirectory));
-
                     if (!Directory.Exists(HostingEnvironment.MapPath($"~/{directory}/" + subdirectory)))
                         Directory.CreateDirectory(HostingEnvironment.MapPath($"~/{directory}/" + subdirectory));
 
@@ -186,9 +183,27 @@ namespace Repository
             return filelocation;
         }
 
-        public bool IsBase64Valid(string base64String)
+        public bool RemoveFileFromDirectory(string directory, string subdirectory, string fileLocation)
         {
-            throw new NotImplementedException();
+            bool IsDeleted = false;
+            try {
+                if (!Directory.Exists(HostingEnvironment.MapPath("~/" + directory)))
+                {
+                    if (!Directory.Exists(HostingEnvironment.MapPath("~/" + subdirectory)))
+                    {
+                        if ((File.Exists(fileLocation)))
+                        {
+                            File.Delete(fileLocation);
+                            IsDeleted = true;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                LogManager.WriteLog(ex);
+            }
+            return IsDeleted;
         }
     }
 }

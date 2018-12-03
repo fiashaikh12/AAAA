@@ -55,6 +55,7 @@ namespace Entities
         public bool IsLogedIn { get; set; }
     }
     public class LoginResponse {
+        public string Address { get; set; }
         public string  CompanyName { get; set; }
         public string  FullName { get; set; }
         public int RoleId { get; set; }
