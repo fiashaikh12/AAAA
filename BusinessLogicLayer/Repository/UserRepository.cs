@@ -3,7 +3,6 @@ using DataAccessLayer;
 using System.Data.SqlClient;
 using System.Data;
 using Entities;
-using static Enum.Enums;
 
 namespace Repository
 {

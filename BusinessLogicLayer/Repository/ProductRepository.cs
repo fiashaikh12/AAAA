@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Repository;
 using Entities;
 using DataAccessLayer;
 using System.Data;
-using static Enum.Enums;
 using System.Data.SqlClient;
 using System.Linq;
 
