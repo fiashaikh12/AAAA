@@ -15,9 +15,8 @@ namespace Entities
     {
         public int CategoryId { get; set; }
         public int SubCategoryId { get; set; }
-        //public List<NearByDistributors> Distributors { get; }
     }
-    public class ProductListByCategory
+    public class ProductListByCategory:Distributor_User
     {
         public int ProductId { get; set; }
         public decimal Price { get; set; }

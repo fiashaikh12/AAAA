@@ -10,58 +10,58 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
-      <publishTime>11/29/2018 18:50:41</publishTime>
+      <publishTime>11/29/2018 10:17:22</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
-      <publishTime>11/29/2018 18:50:41</publishTime>
+      <publishTime>11/29/2018 10:17:22</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>12/02/2018 17:39:32</publishTime>
+      <publishTime>12/04/2018 09:54:01</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>12/02/2018 17:39:32</publishTime>
+      <publishTime>12/04/2018 09:54:01</publishTime>
     </File>
     <File Include="bin/Autofac.dll">
-      <publishTime>09/03/2018 09:29:48</publishTime>
+      <publishTime>11/29/2018 09:46:34</publishTime>
     </File>
     <File Include="bin/Autofac.Integration.WebApi.dll">
-      <publishTime>06/21/2018 18:25:22</publishTime>
+      <publishTime>11/29/2018 09:46:34</publishTime>
     </File>
     <File Include="bin/Autofac.Integration.WebApi.pdb">
-      <publishTime>06/21/2018 18:25:22</publishTime>
+      <publishTime>11/29/2018 09:46:34</publishTime>
     </File>
     <File Include="bin/BusinessLogicLayer.dll">
-      <publishTime>12/02/2018 17:39:19</publishTime>
+      <publishTime>12/04/2018 09:53:43</publishTime>
     </File>
     <File Include="bin/BusinessLogicLayer.dll.config">
-      <publishTime>11/29/2018 18:50:39</publishTime>
+      <publishTime>11/29/2018 10:17:44</publishTime>
     </File>
     <File Include="bin/BusinessLogicLayer.pdb">
-      <publishTime>12/02/2018 17:39:19</publishTime>
+      <publishTime>12/04/2018 09:53:43</publishTime>
     </File>
     <File Include="bin/BusinessObjects.dll">
-      <publishTime>12/02/2018 17:39:18</publishTime>
+      <publishTime>12/04/2018 09:53:42</publishTime>
     </File>
     <File Include="bin/BusinessObjects.pdb">
-      <publishTime>12/02/2018 17:39:18</publishTime>
+      <publishTime>12/04/2018 09:53:42</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>12/01/2018 17:31:06</publishTime>
+      <publishTime>11/30/2018 14:41:23</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>12/01/2018 17:31:06</publishTime>
+      <publishTime>11/30/2018 14:41:23</publishTime>
     </File>
     <File Include="bin/DotNetZip.dll">
       <publishTime>11/09/2018 14:37:48</publishTime>
     </File>
     <File Include="bin/MerchantDistributorService_API.dll">
-      <publishTime>12/02/2018 17:39:25</publishTime>
+      <publishTime>12/04/2018 09:53:49</publishTime>
     </File>
     <File Include="bin/MerchantDistributorService_API.pdb">
-      <publishTime>12/02/2018 17:39:25</publishTime>
+      <publishTime>12/04/2018 09:53:49</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
-      <publishTime>06/27/2017 12:59:34</publishTime>
+      <publishTime>11/29/2018 09:46:34</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.DependencyCollector.dll">
       <publishTime>10/19/2018 15:44:10</publishTime>
@@ -115,7 +115,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/06/2018 17:07:26</publishTime>
     </File>
     <File Include="bin/Purplelight.Framework.Autofac.Integration.WebApi.dll">
-      <publishTime>09/03/2018 09:29:50</publishTime>
+      <publishTime>11/29/2018 09:46:36</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>08/08/2018 05:38:48</publishTime>
@@ -310,40 +310,40 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/12/2018 15:43:41</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>11/29/2018 18:50:43</publishTime>
+      <publishTime>11/29/2018 10:17:22</publishTime>
     </File>
     <File Include="Pages/Admin.html">
-      <publishTime>11/15/2018 13:14:11</publishTime>
+      <publishTime>11/29/2018 09:46:33</publishTime>
     </File>
     <File Include="Pages/css/adminCss.css">
-      <publishTime>11/15/2018 12:56:17</publishTime>
+      <publishTime>11/29/2018 09:46:33</publishTime>
     </File>
     <File Include="Pages/css/style.css">
-      <publishTime>11/15/2018 12:56:19</publishTime>
+      <publishTime>11/29/2018 09:46:33</publishTime>
     </File>
     <File Include="Pages/js/angular.js">
-      <publishTime>11/15/2018 12:32:43</publishTime>
+      <publishTime>11/29/2018 09:46:33</publishTime>
     </File>
     <File Include="Pages/js/developer.js">
-      <publishTime>11/15/2018 12:36:06</publishTime>
+      <publishTime>11/29/2018 09:46:33</publishTime>
     </File>
     <File Include="Pages/Login.html">
-      <publishTime>11/30/2018 19:20:48</publishTime>
+      <publishTime>12/03/2018 08:49:04</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>12/02/2018 17:39:27</publishTime>
+      <publishTime>12/04/2018 09:53:52</publishTime>
     </File>
     <File Include="scripts/admin.js">
-      <publishTime>11/03/2018 20:17:13</publishTime>
+      <publishTime>11/29/2018 09:46:34</publishTime>
     </File>
     <File Include="scripts/ai.0.22.9-build00167.js">
-      <publishTime>09/03/2018 09:29:47</publishTime>
+      <publishTime>11/29/2018 09:46:34</publishTime>
     </File>
     <File Include="scripts/ai.0.22.9-build00167.min.js">
-      <publishTime>09/03/2018 09:29:47</publishTime>
+      <publishTime>11/29/2018 09:46:34</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/30/2018 19:42:03</publishTime>
+      <publishTime>11/30/2018 16:41:01</publishTime>
     </File>
   </ItemGroup>
 </Project>
