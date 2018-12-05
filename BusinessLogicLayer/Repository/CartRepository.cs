@@ -188,7 +188,8 @@ namespace Repository
                             Quantity = x.Field<int>("Quantity"),
                             Photos_Url = $"http://escandent.com/{x.Field<string>("Photos_Url")}",
                             Name = x.Field<string>("Name"),
-                            ProductId = x.Field<int>("Product_Id")
+                            ProductId = x.Field<int>("Product_Id"),
+                            
                         }).ToList();
                     serviceRes.Data = productDetails;
                     serviceRes.IsSuccess = true;

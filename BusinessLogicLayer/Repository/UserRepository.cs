@@ -129,7 +129,7 @@ namespace Repository
                         int loginAttempts = Convert.ToInt32(dtUser.Rows[0][4]);
                         string companyName = Convert.ToString(dtUser.Rows[0][7]); ;
                         string fullName = Convert.ToString(dtUser.Rows[0][6]); ;
-                        //bool isLogedIn = Convert.ToBoolean(dtUser.Rows[0][5]);
+                        string address = Convert.ToString(dtUser.Rows[0][8]);
                         int roleId = Convert.ToInt32(dtUser.Rows[0][5]);
                         
                         if ((username.Equals(objUser.MobileNumber) && decryptedPassword.Equals(objUser.Password))) {
@@ -140,14 +140,14 @@ namespace Repository
                                     CompanyName = companyName,
                                     FullName = fullName,
                                     RoleId = roleId,
-                                    UserId = memberId
+                                    UserId = memberId,
+                                    Address=address
                                 };
                                 loginDetails.MobileNumber = objUser.MobileNumber;
                                 loginDetails.IsLocked = false;
                                 loginDetails.LoginAttempts = 3;
                                 loginDetails.IsLogedIn = true;
-                                //UpdateLoginDetails(loginDetails);
-                                
+                                //Response
                                 serviceRes.IsSuccess = true;
                                 serviceRes.ReturnCode = "200";
                                 serviceRes.ReturnMsg = $"User authenticated";
