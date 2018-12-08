@@ -1,11 +1,9 @@
-﻿using Repository;
-using Entities;
+﻿using Entities;
 using DataAccessLayer;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.IO;
 using static Enum.Enums;
 
 namespace Repository

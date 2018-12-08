@@ -1,7 +1,6 @@
 ﻿using DataAccessLayer;
 using Entities;
 using Interface;
-using Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -189,7 +188,7 @@ namespace Repository
                             Photos_Url = $"http://escandent.com/{x.Field<string>("Photos_Url")}",
                             Name = x.Field<string>("Name"),
                             ProductId = x.Field<int>("Product_Id"),
-                            
+                           UserId=x.Field<int>("Member_Id")
                         }).ToList();
                     serviceRes.Data = productDetails;
                     serviceRes.IsSuccess = true;
